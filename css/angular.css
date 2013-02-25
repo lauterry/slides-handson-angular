@@ -1,0 +1,15 @@
+.reveal small.pull-right{
+    float:right;
+    margin-right: 140px;
+}
+
+.reveal section .orange {
+    color: #ff4500;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.question h2, .question p:first-of-type {
+    color: orange;
+}
