@@ -13,3 +13,7 @@
 .question h2, .question p:first-of-type {
     color: orange;
 }
+
+.answer h2, .answer p:first-of-type {
+    color: #9acd32;
+}

@@ -185,13 +185,9 @@ function myController($scope){
                         </ul>
                     </section>
 
-                    <section>
-                        <h2>Vous savez maintenant :</h2>
-                        <ul>
-                            <li>Initialiser AngularJS</li>
-                            <li>Créer un contrôleur</li>
-                            <li>Mettre en place le data binding bi directionnel</li>
-                        </ul>
+                    <section class="answer">
+                        <h2>Solution</h2>
+                        <p>git checkout -f step-1</p>
                     </section>
 
                 </section>
@@ -200,7 +196,6 @@ function myController($scope){
                 <section>
                     <section>
                         <h1>Templating avancée avec ng-repeat</h1>
-                        <p>git checkout -f step-1</p>
                     </section>
                     <section>
                         <h2>directive ng-repeat</h2>
@@ -273,11 +268,9 @@ movies = [
 
                     </section>
 
-                    <section>
-                        <h2>Vous savez maintenant :</h2>
-                        <ul>
-                            <li>utilisé la directive ng-repeat</li>
-                        </ul>
+                    <section class="answer">
+                        <h2>Solution</h2>
+                        <p>git checkout -f step-2</p>
                     </section>
 
                 </section>
@@ -307,6 +300,7 @@ function myController($scope){
                     <h2>Exercice 3 : Gérer un clic</h2>
                     <p>Afficher une alerte avec les infos du films saisies dans le formulaire</p>
                 </section>
+
             </section>
 
             <section>
@@ -320,14 +314,371 @@ function myController($scope){
                         <li class="fragment">... et hérite des propriétés de ce dernier</li>
                     </ul>
                 </section>
+
                 <section class="question">
                     <h2>Exercice 4 : Ajouter un film dans la liste</h2>
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page</p>
                     <ul>
                         <li>Un scope est créé pour chaque contrôleur</li>
                         <li>Surveillez donc la position de vos directive ng-controller</li>
+                        <li>N'oubliez pas de mettre à jour le nombre de films dans la page</li>
                     </ul>
                 </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-3-solution</p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>Propagation des évènements <code>$scope</code></h2>
+                    <p class="fragment">Un évènement peut être "diffusé" aux <code>$scope</code> enfants ...</p>
+                    <pre class="fragment"><code class="javascript" contenteditable>
+$scope.$broadcast('myEvent', param1, param2, ...);
+                    </code></pre>
+                    <p class="fragment">... ou "émis" aux <code>$scope</code> parents</p>
+                    <pre class="fragment"><code class="javascript" contenteditable>
+$scope.$emit('anotherEvent', param1, param2, ...);
+                    </code></pre>
+                    <p class="fragment">L'écoute des évènements se fait comme suit : </p>
+                    <pre class="fragment"><code class="javascript" contenteditable>
+$scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
+    console.log(param1);
+});
+                    </code></pre>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 5 : Ajouter un film dans la liste (autre solution)</h2>
+                    <p>Ajouter un film dans la liste des films et l'afficher dans la page en utilisant les évènements du <code>scope</code></p>
+                    <ul>
+                        <li>Cette solution peut remplacer celle de l'exercice 4</li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-3-scope-event</p>
+                </section>
+
+            </section>
+
+                <section>
+                    <section>
+                        <h1>XHR & Injection de dépendances</h1>
+                        <p>Pour effectuer des appels XHR, angular dispose du service <code>$http</code> ...</p>
+                        <p>... injectable au même titre que le service <code>$scope</code></p>
+                        <pre><code class="javascript" contenteditable>
+function myController($scope, $http){
+
+};
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <p>Usages</p>
+                        <pre><code class="javascript" contenteditable>
+$http.get(url, options)
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+$http.post(url, data, options)
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+$http.put(url, data, options)
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+$http.delete(url, options)
+                        </code></pre>
+                    </section>
+
+
+                    <section>
+                        <p>Callbacks</p>
+                        <pre><code class="javascript" contenteditable>
+$http.get(url, options)
+    .success(function(data, status, headers, config){
+        /* do something */
+    })
+    .error(function(data, status, headers, config){
+        /* handle error */
+    });
+                        </code></pre>
+                    </section>
+
+                    <section class="question">
+                        <h2>Exercice 6 : Fini les données en dur.</h2>
+                        <p>Récupérer les films à partir du serveur. Idem pour l'ajout de film</p>
+                        <ul>API :
+                            <li><code>GET /server/api/movies</code></li>
+                            <li><code>POST /server/api/movies</code></li>
+                        </ul>
+                    </section>
+
+                    <section class="answer">
+                        <h2>Solution</h2>
+                        <p>git checkout -f step-4</p>
+                    </section>
+
+                </section>
+
+            <section>
+                <section>
+                    <h1>Navigation côté client</h1>
+                </section>
+                <section>
+                    <h2>Service <code>$routeProvider</code></h2>
+                    <p>Permet de configurer le template HTML à charger avec son contrôleur associé pour une URL donné</p>
+                    <pre><code class="javascript" contenteditable>
+$routeProvider
+    .when('/route1', {
+      templateUrl: 'path/to/view1.html',
+        controller : 'view1Controller'
+    })
+    .when('/route2', {
+        templateUrl: 'path/to/view2.html',
+        controller : 'view2Controller'
+    })
+    .otherwise({
+        redirectTo: '/route1'
+    });
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <h2>Où l'injecter ?</h2>
+                    <p>Dans la factory config de votre module</p>
+                    <pre><code class="javascript" contenteditable>
+/* Dans le fichier de définition de votre module app.js*/
+var angularMovieApp = angular.module('angularMovieApp', []);
+
+angularMovieApp.config(function($routeProvider) {
+    /* routes configurations */
+});
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <p>A utiliser avec la directive <code>ng-view</code></p>
+                    <pre><code class="html">
+&lt;body&gt;
+    &lt;header&gt;
+        /* Common part for all pages. For example a top header menu */
+    &lt;/header&gt;
+    &lt;section ng-view&gt;&lt;/section&gt;  /* this is the dynamic part */
+    &lt;footer&gt;
+        /* Common part for all pages. For example a footer */
+    &lt;/footer&gt;
+&lt;/body&gt;
+                    </code></pre>
+                    <p>Attention : une seule directive ng-view ne peut utilisée :(</p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 6 : Une vrai navigation côté client</h2>
+                    <p>La navigation d'une page à l'autre peut être améliorée. Utiliser le service <code>$routeProvider</code>
+                        et la directive <code>ng-view</code> pour ne garder qu'un fichier index.html
+                    </p>
+                    <ul>
+                        <li>Identifier dans votre page index.html les portions qui sont commun à toutes les pages et la partie qui est dynamique</li>
+                        <li>Créer un répertoire où stocker les fragments de page spécifique</li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-5</p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 7 : Supprimer un film</h2>
+                    <p>git checkout -f step-5-delete</p>
+                    <p>Un bouton de suppression vient d'être ajouté pour chaque film. Implémenter son action</p>
+                    <ul>
+                        <li>Utiliser ce que vous avez appris jusqu'ici</li>
+                        <li>API : <code>DELETE /server/api/movies/:id </code></li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-5-delete-solution</p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 8 : Modifier un film</h2>
+                    <p>git checkout -f step-5-edit</p>
+                    <p>Un bouton de modification vient d'être ajouté pour chaque film. Implémenter son action</p>
+                    <ul>
+                        <li>Petite contrainte : La page d'édition doit être accessible via l'url /#/movies/edit/:id</li>
+                        <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
+                        <li>Utiliser le service <code>$location.path('/path')</code> pour naviguer vers /#/path</li>
+                        <li>API : <code>PUT /server/api/movies</code></li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-5-edit-solution</p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h1>Créer votre propre service</h1>
+                    <p class="fragment">Singleton qui fournit des tâches spécifiques à l'application</p>
+                    <p class="fragment">Exemple : $scope, $http</p>
+                </section>
+
+                <section>
+                    <h2>Créer ses propres services</h2>
+                        <pre><code class="javascript" contenteditable>
+myModuleApp.service("MonService", function ($http, dep1, dep2, ...) {
+    /* utilisation de $http */
+});
+                        </code></pre>
+
+                        <pre class="fragment"><code class="javascript" contenteditable>
+function myController($scope, MonService){
+    MonService.faireUnTruc();
+};
+                        </code></pre>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 9 : Créer votre propre service</h2>
+                    <p>Actuellement, nous utilisons le service $http en l'injectons dans les controllers et nous dupliquons à chaque fois l'url de l'API. Améliorons ceci en créant notre propre service pour nous connecter au back end pour les opérations de CRUD sur les films.</p>
+                    <ul>
+                        <li>Appelons ce service <code>Movies</code></li>
+                        <li>Dans le contrôleur, au lieu d'appeler <code>$http.get("/server/api/movies")</code>, j'aimerai appeler <code>Movies.fetch();</code></li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-7</p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h1>Filtres AngularJS</h1>
+                    <p>Formate les données avant de les afficher</p>
+                </section>
+                <section>
+                    <h2>Exemples</h2>
+                        <pre><code class="javascript" contenteditable>
+$scope.amount = 1234.56;
+                        </code></pre>
+                        <pre><code class="html" contenteditable>
+&lt;div&gt;{{amount | currency}}&lt;/div&gt;        &lt;!-- $1,234.56 --&gt;
+&lt;div&gt;{{amount | currency:"USD$"}}&lt;/div&gt; &lt;!-- USD$1,234.56 --&gt;
+                        </code></pre>
+                </section>
+                <section>
+                    <h2>D'autres filtres</h2>
+                    <ul>
+                        <li>date</li>
+                        <li>lowercase</li>
+                        <li>uppercase</li>
+                        <li>limitTo</li>
+                        <li class="fragment grow">filter</li>
+                        <li class="fragment grow">orderBy</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Filtre <code>filter</code></h2>
+                    <p>Permet de filtrer un sous ensemble d'une collection et retourne ce sous ensemble.</p>
+                    <pre><code class="html" contenteditable>
+&lt;div&gt;{{collection | filter:predicat}}&lt;/div&gt;
+                    </code></pre>
+                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriété qui contient ce prédicat sera retourné dans une nouvelle collection.>/p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 10 : Rechercher un film</h2>
+                    <p>git checkout -f step-8</p>
+                    <p>Une barre de recherche est disponible. Implémentez une fonction de recherche en utilisant le filtre <code>filter</code></p>
+                    <ul>
+                        <li>Tirez parti du data-binding</li>
+                        <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h2>Filtre <code>orderBy</code></h2>
+                    <p>Tri une collection selon un predicat</p>
+<pre><code class="html" contenteditable>
+   &lt;div&gt;{{collection | orderBy:predicat:reverse}}&lt;/div&gt;
+</code></pre>
+                    <p>Ce filtre accepte un predicat (string) en argument. Ce prédicat désigne la propriété sur lequel fait le tri.
+                        Un deuxième argument (boolean) permet d'inverser le sens du tri>/p>
+                </section>
+
+
+                <section class="question">
+                    <h2>Exercice 11 : Trier les films par année et par titre</h2>
+                    <p>git checkout -f step-8</p>
+                    <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondant</p>
+                    <ul>
+                        <li>Tirez parti du data-binding</li>
+                        <li>Les fitlres peuvent être chaînés</li>
+                        <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-8-solution</p>
+                </section>
+
+                <section>
+                    <h2>Créer ses propres filtres</h2>
+                        <pre><code class="javascript" contenteditable>
+angularMovieApp.filter('greet', function () {
+    return function(inputValue, arg1, arg2, ....) {
+        return 'Hello ' + inputvalue;
+    };
+});
+                        </code></pre>
+                        <pre><code class="html" contenteditable>
+&lt;div&gt;{{name || greet}}&lt;/div&gt;
+&lt;div&gt;{{name || greet:arg1:arg2}}&lt;/div&gt;
+                        </code></pre>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 12 : Je veux de vrais étoiles</h2>
+                    <p>git checkout -f step-9</p>
+                    <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
+                    <ul>
+                        <li>Voici la caractère unicode pour un étoile : \u2605</li>
+                        <li>Créez un nouveau fichier filters.js</li>
+                    </ul>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 13 : Une image vide par défault</h2>
+                    <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
+                    <ul>
+                        <li>Réfléchissez sur quoi appliquer le filtre</li>
+                    </ul>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-9-solution</p>
+                </section>
+
+
             </section>
 
 			</div>
