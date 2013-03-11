@@ -733,6 +733,120 @@ angularMovieApp.filter('greet', function () {
 
             </section>
 
+            <section>
+                <section>
+                    <h1>Directives AngularJS</h1>
+                </section>
+                <section>
+                    <h2>Permet de : </h2>
+                    <p>Etendre le langage HTML</p>
+                    <p>Créer ses propres composants</p>
+                </section>
+                <section>
+                    <h2>Directives vues</h2>
+                    <ul>
+                        <li>ng-repeat</li>
+                        <li>ng-model</li>
+                        <li>ng-controller</li>
+                        <li>ng-switch</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Directives ng-switch</h2>
+                    <p>Change la structure du DOM de manière conditionnel</p>
+                    <pre><code class="html">
+&lt;section ng-switch on="value"&gt;
+    &lt;div ng-switch-when="one"&gt;Valeur1&lt;/div&gt;
+    &lt;span ng-switch-when="two"&gt;Valeur2&lt;/span&gt;
+    &lt;div ng-switch-default &gt;Default&lt;/div&gt;
+&lt;/section&gt;
+                    </code></pre>
+                </section>
+
+
+                <section class="question">
+                    <h2>Exercice 14 : Une liste de films plus compacte</h2>
+                    <p>git checkout -f step-10</p>
+                    <p>Vous allez permet à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
+                    <ul>
+                        <li>Un bouton vient d'être rajouter.</li>
+                        <li>Utiliser la directive <code>ng-switch</code></li>
+                        <li>Aidez vous du snippet de code de la slide suivante pour une vue en mode tableau</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <pre><code class="javascript" contenteditable>
+&lt;table class="table table-striped"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;#&lt;/th&gt;
+        &lt;th&gt;Titre&lt;/th&gt;
+        &lt;th&gt;Réalisateur&lt;/th&gt;
+        &lt;th&gt;Année de sortie&lt;/th&gt;
+        &lt;th&gt;Note&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr ng-repeat="movie in movies | orderBy:tri:reverse | filter : search "&gt;
+        &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+        &lt;td&gt;{{movie.title}}&lt;/td&gt;
+        &lt;td&gt;{{movie.directors}}&lt;/td&gt;
+        &lt;td&gt;{{movie.releaseYear}}&lt;/td&gt;
+        &lt;td&gt;{{movie.rate | stars}}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                    </code></pre>
+                </section>
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-10-solution</p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>Outils autour d'AngularJS</h2>
+                    <ul>
+                        <li class="fragment"><a
+                                href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk">Batarang</a>, une extension Chrome</li>
+                        <li class="fragment"><a href="http://yeoman.io/">Yeoman</a>, le process du développeur Web moderne</li>
+                        <li class="fragment"><a href="http://vojtajina.github.com/testacular/">Testacular</a>, un lanceur de tests spectaculaire</li>
+                        <li class="fragment"><a href="http://plugins.jetbrains.com/plugin?pr=&pluginId=6971">Plugin Intellij / webstorm</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Pourquoi AngularJS ?</h1>
+                    <ul>
+                        <li class="fragment">Beaucoup moins de code de plomberie grâce au data-binding bi-directionnel</li>
+                        <li class="fragment">Modularisation & Encapsulation</li>
+                        <li class="fragment">AngularJS peut être actif sur une portion de ta page</li>
+                        <li class="fragment">Créer ses propres composants réutilisables</li>
+                        <li class="fragment">API bien documenté</li>
+                        <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Excellent tutorial pour débuter</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Difficultés</h2>
+                    <ul>
+                        <li>Ecriture des directives compliqués si on ne maîtrise pas le processu de compilation AngularJS</li>
+                        <li>Le data-binding bi-directionnel ne fonctionne pas hors du "monde" AngularJS. Il faut utiliser
+                            <code>$scope.watch()</code> et <code>$scope.$apply()</code> pour surveiller et mettre à jour manuellement une valeur
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h3>Merci de votre attention !</h3>
+                <p>twitter : <a href="https://twitter.com/laut3rry">@laut3rry</a></p>
+                <p>google + : <a href="http://gplus.to/lauthierry">http://gplus.to/lauthierry</a></p>
+            </section>
+
 			</div>
 
 		</div>
