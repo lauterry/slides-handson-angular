@@ -10,7 +10,7 @@
     font-family: sans-serif;
 }
 
-.question h2, .question p:first-of-type {
+.question h2, .question p:nth-child(2), .question p:nth-child(3) {
     color: orange;
 }
 

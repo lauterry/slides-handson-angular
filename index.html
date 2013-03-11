@@ -179,10 +179,48 @@ function myController($scope){
                             le contenu du champ
                         </p>
                         <ul>
+                            <li>La librairie angularjs est disponible dans le répertoire js/lib</li>
                             <li>Initialisation avec ng-app</li>
                             <li>Utilisé la notation {{ }} et la directive ng-model</li>
-                            <li>Créer un contrôleur et utilisé la directive ng-controller</li>
+                            <li>Créer un contrôleur et utiliser la directive ng-controller</li>
                         </ul>
+                    </section>
+
+                    <section>
+                        <h2>Data Binding bi-directionnel</h2>
+                        <pre><code class="html" contenteditable>
+&lt;html ng-app&gt;
+    &lt;div ng-controller="myController"&gt;
+        &lt;input type="text" ng-model="greeting"&gt;
+        &lt;p&gt;{{greeting}}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+function myController($scope){
+    $scope.greeting = 'Hello World';
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Module & Namespacing</h2>
+                        <pre><code class="html" contenteditable>
+&lt;html ng-app="myApp"&gt;
+    &lt;div ng-controller="myController"&gt;
+        &lt;input type="text" ng-model="greeting"&gt;
+        &lt;p&gt;{{greeting}}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+var myApp = angular.module('myApp', []);
+                        </code></pre>
+                        <pre><code class="javascript" contenteditable>
+myApp.controller('myController', function($scope){
+    $scope.greeting = 'Hello World';
+});
+                        </code></pre>
                     </section>
 
                     <section class="answer">
@@ -279,7 +317,6 @@ movies = [
             <section>
                 <section>
                     <h1>Gestion des évènements</h1>
-                    <p>git checkout -f step-3</p>
                 </section>
 
                 <section>
@@ -298,7 +335,12 @@ function myController($scope){
 
                 <section class="question">
                     <h2>Exercice 3 : Gérer un clic</h2>
-                    <p>Afficher une alerte avec les infos du films saisies dans le formulaire</p>
+                    <p>git checkout -f step-3</p>
+                    <p>Afficher une <code>window.alert()</code> avec les infos du films saisies dans le formulaire</p>
+                    <ul>
+                        <li>Créer un nouveau controller pour gérer le formulaire</li>
+                        <li>N'oubliez pas de binder les champs de saisies au <code>$scope</code></li>
+                    </ul>
                 </section>
 
             </section>
@@ -322,6 +364,7 @@ function myController($scope){
                         <li>Un scope est créé pour chaque contrôleur</li>
                         <li>Surveillez donc la position de vos directive ng-controller</li>
                         <li>N'oubliez pas de mettre à jour le nombre de films dans la page</li>
+                        <li>Pensez à réinitialiser le formulaire après chaque film rajouté</li>
                     </ul>
                 </section>
 
@@ -414,6 +457,7 @@ $http.get(url, options)
                         <ul>API :
                             <li><code>GET /server/api/movies</code></li>
                             <li><code>POST /server/api/movies</code></li>
+                            <li>Attention au format du JSON reçu</li>
                         </ul>
                     </section>
 
@@ -467,15 +511,17 @@ angularMovieApp.config(function($routeProvider) {
                     <pre><code class="html">
 &lt;body&gt;
     &lt;header&gt;
-        /* Common part for all pages. For example a top header menu */
+        /* Common part for all pages.*/
     &lt;/header&gt;
-    &lt;section ng-view&gt;&lt;/section&gt;  /* this is the dynamic part */
+    &lt;section ng-view&gt;
+        /* this is the dynamic part */
+    &lt;/section&gt;
     &lt;footer&gt;
-        /* Common part for all pages. For example a footer */
+        /* Common part for all pages.*/
     &lt;/footer&gt;
 &lt;/body&gt;
                     </code></pre>
-                    <p>Attention : une seule directive ng-view ne peut utilisée :(</p>
+                    <p>Attention : une seule directive ng-view ne peut être utilisée</p>
                 </section>
 
                 <section class="question">
@@ -485,7 +531,7 @@ angularMovieApp.config(function($routeProvider) {
                     </p>
                     <ul>
                         <li>Identifier dans votre page index.html les portions qui sont commun à toutes les pages et la partie qui est dynamique</li>
-                        <li>Créer un répertoire où stocker les fragments de page spécifique</li>
+                        <li>Créer un répertoire app/partials où stocker les fragments de page spécifique</li>
                     </ul>
                 </section>
 
@@ -501,6 +547,8 @@ angularMovieApp.config(function($routeProvider) {
                     <ul>
                         <li>Utiliser ce que vous avez appris jusqu'ici</li>
                         <li>API : <code>DELETE /server/api/movies/:id </code></li>
+                        <li>Astuce : Vous pouvez accéder au numéro d'index courant de la collection dans ng-repeat via $index</li>
+                        <li>Utiliser la méthode <code>array.splice(from, nb)</code> pour retirer le film supprimé du <code>$scope</code></li>
                     </ul>
                 </section>
 
@@ -539,7 +587,11 @@ angularMovieApp.config(function($routeProvider) {
                     <h2>Créer ses propres services</h2>
                         <pre><code class="javascript" contenteditable>
 myModuleApp.service("MonService", function ($http, dep1, dep2, ...) {
-    /* utilisation de $http */
+    return {
+        faireUnTruc() : function(){
+            /* utilisation de $http */
+        };
+    };
 });
                         </code></pre>
 
@@ -552,10 +604,11 @@ function myController($scope, MonService){
 
                 <section class="question">
                     <h2>Exercice 9 : Créer votre propre service</h2>
-                    <p>Actuellement, nous utilisons le service $http en l'injectons dans les controllers et nous dupliquons à chaque fois l'url de l'API. Améliorons ceci en créant notre propre service pour nous connecter au back end pour les opérations de CRUD sur les films.</p>
+                    <p>Actuellement, nous utilisons le service $http en l'injectant dans les controllers et nous dupliquons à chaque fois l'url de l'API. Améliorons ceci en créant notre propre service pour nous connecter au back end pour les opérations de CRUD sur les films.</p>
                     <ul>
                         <li>Appelons ce service <code>Movies</code></li>
-                        <li>Dans le contrôleur, au lieu d'appeler <code>$http.get("/server/api/movies")</code>, j'aimerai appeler <code>Movies.fetch();</code></li>
+                        <li>Par exemple, dans le contrôleur, au lieu d'appeler <code>$http.get("/server/api/movies")</code>, j'aimerai appeler <code>Movies.fetch();</code></li>
+                        <li>De manière analogue, idem pour les autres verbes HTTP</li>
                     </ul>
                 </section>
 
@@ -599,7 +652,7 @@ $scope.amount = 1234.56;
                     <pre><code class="html" contenteditable>
 &lt;div&gt;{{collection | filter:predicat}}&lt;/div&gt;
                     </code></pre>
-                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriété qui contient ce prédicat sera retourné dans une nouvelle collection.>/p>
+                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriété qui contient ce prédicat sera retourné dans une nouvelle collection.</p>
                 </section>
 
                 <section class="question">
@@ -620,17 +673,16 @@ $scope.amount = 1234.56;
    &lt;div&gt;{{collection | orderBy:predicat:reverse}}&lt;/div&gt;
 </code></pre>
                     <p>Ce filtre accepte un predicat (string) en argument. Ce prédicat désigne la propriété sur lequel fait le tri.
-                        Un deuxième argument (boolean) permet d'inverser le sens du tri>/p>
+                        Un deuxième argument (boolean) permet d'inverser le sens du tri</p>
                 </section>
 
 
                 <section class="question">
                     <h2>Exercice 11 : Trier les films par année et par titre</h2>
-                    <p>git checkout -f step-8</p>
                     <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondant</p>
                     <ul>
                         <li>Tirez parti du data-binding</li>
-                        <li>Les fitlres peuvent être chaînés</li>
+                        <li>Les filtres peuvent être chaînés</li>
                         <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
                     </ul>
                 </section>
@@ -661,7 +713,7 @@ angularMovieApp.filter('greet', function () {
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
                         <li>Voici la caractère unicode pour un étoile : \u2605</li>
-                        <li>Créez un nouveau fichier filters.js</li>
+                        <li>Créez le filtre dans un nouveau fichier filters.js</li>
                     </ul>
                 </section>
 
