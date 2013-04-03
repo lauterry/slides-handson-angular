@@ -49,14 +49,25 @@
                     </section>
 
                     <section>
-                        <h2>Thierry LAU</h2>
-                        <ul>
-                            <li>développeur Front-End chez <span class="orange">[</span>sf<span class="orange">Ξ</span>ir<span class="orange">]</span></li>
-                            <li>passionné des technologies du Web</li>
-                            <li>anime la page Google+ <a href="https://plus.google.com/101291710590780094468/posts">HTML5 * CSS3 - ʕ๏๏ʔ</a></li>
-                            <li>et la communauté Google+ <a href="http://gplus.to/html5css3fr">HTML5 * CSS3 [FR]</a></li>
-                            <li>et bien sûr fan d'AngularJS</li>
-                        </ul>
+                        <h2>Développeur Front End chez <span class="orange">[</span>sf<span class="orange">Ξ</span>ir<span class="orange">]</span></h2>
+                        <a href="http://www.sfeir.com"><img src="img/sfeir.png" alt=""></a>
+                    </section>
+                    <section>
+                        <h2>Anime la page HTML5 * CSS3 - ʕ๏๏ʔ</h2>
+                        <figure>
+                            <a href="https://plus.google.com/101291710590780094468/posts"><img src="img/page_google_plus.png" alt=""></a>
+                        </figure>
+                    </section>
+                    <section>
+                        <h2>et la communauté HTML5 * CSS3 [FR]</h2>
+                        <figure>
+                            <a href="http://gplus.to/html5css3fr"><img src="img/communaute_google_plus.png" alt=""></a>
+                        </figure>
+                    </section>
+                    <section id="fan">
+                        <h1>F</h1>
+                        <img src="img/angularjs.png" height="300px" alt="A">
+                        <h1>N</h1>
                     </section>
                 </section>
 
@@ -102,8 +113,10 @@
                     </section>
                     <section>
                         <h2>Récupérer le code</h2>
-                        <a href="https://github.com/lauterry/angularmovie">git clone git@github.com:lauterry/angularmovie.git</a>
+                        <a href="https://github.com/lauterry/angularmovie">git clone https://github.com/lauterry/angularmovie.git</a>
                         <p>git checkout -f step-0</p>
+                        <p>ou</p>
+                        <p><a href="https://drive.google.com/folderview?id=0B_3kwg7TeB50bFZnUXVTeUNtb2M&usp=sharing">Récupérer à partir de Google Drive</a></p>
                     </section>
                 </section>
 
@@ -254,6 +267,7 @@ myApp.controller('myController', function($scope){
                         <ul>
                             <li>Créer un nouveau contrôleur pour la liste des films</li>
                             <li>Créer une collection de film dans le contrôleur</li>
+                            <li class="help-js">JS : accéder aux propriétés d'un object avec la notation pointée (ex : car.color)</li>
                         </ul>
                          <pre><code class="javascript" contenteditable>
 movies = [
@@ -364,7 +378,7 @@ function myController($scope){
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page</p>
                     <ul>
                         <li>Un scope est créé pour chaque contrôleur</li>
-                        <li>Surveillez donc la position de vos directive ng-controller</li>
+                        <li>Surveillez donc la position de vos directives ng-controller</li>
                         <li>N'oubliez pas de mettre à jour le nombre de films dans la page</li>
                         <li>Pensez à réinitialiser le formulaire après chaque film rajouté</li>
                     </ul>
@@ -456,6 +470,7 @@ $http.get(url, options)
                     <section class="question">
                         <h2>Exercice 6 : Fini les données en dur.</h2>
                         <p>Récupérer les films à partir du serveur. Idem pour l'ajout de film</p>
+                        <p>git checkout -f step-4</p>
                         <ul>API :
                             <li><code>GET /server/api/movies</code></li>
                             <li><code>POST /server/api/movies</code></li>
@@ -481,7 +496,7 @@ $http.get(url, options)
 $routeProvider
     .when('/route1', {
       templateUrl: 'path/to/view1.html',
-        controller : 'view1Controller'
+        controlgiler : 'view1Controller'
     })
     .when('/route2', {
         templateUrl: 'path/to/view2.html',
@@ -532,8 +547,9 @@ angularMovieApp.config(function($routeProvider) {
                         et la directive <code>ng-view</code> pour ne garder qu'un fichier index.html
                     </p>
                     <ul>
-                        <li>Identifier dans votre page index.html les portions qui sont commun à toutes les pages et la partie qui est dynamique</li>
+                        <li>Identifier dans votre page index.html les portions qui sont communes à toutes les pages et la partie qui est dynamique</li>
                         <li>Créer un répertoire app/partials où stocker les fragments de page spécifique</li>
+                        <li>Utiliser soit l'attribut <code>controller</code> du service <code>$routeProvider</code>, soit la directive <code>ng-controller</code></li>
                     </ul>
                 </section>
 
@@ -550,7 +566,7 @@ angularMovieApp.config(function($routeProvider) {
                         <li>Utiliser ce que vous avez appris jusqu'ici</li>
                         <li>API : <code>DELETE /server/api/movies/:id </code></li>
                         <li>Astuce : Vous pouvez accéder au numéro d'index courant de la collection dans ng-repeat via $index</li>
-                        <li>Utiliser la méthode <code>array.splice(from, nb)</code> pour retirer le film supprimé du <code>$scope</code></li>
+                        <li class="help-js">Utiliser la méthode <code>array.splice(from, nb)</code> pour retirer le film supprimé du <code>$scope</code></li>
                     </ul>
                 </section>
 
@@ -610,7 +626,7 @@ function myController($scope, MonService){
                     <ul>
                         <li>Appelons ce service <code>Movies</code></li>
                         <li>Par exemple, dans le contrôleur, au lieu d'appeler <code>$http.get("/server/api/movies")</code>, j'aimerai appeler <code>Movies.fetch();</code></li>
-                        <li>De manière analogue, idem pour les autres verbes HTTP</li>
+                        <li>De manière analogue, idem pour les autres opérations CRUD</li>
                     </ul>
                 </section>
 
@@ -683,7 +699,7 @@ $scope.amount = 1234.56;
                     <h2>Exercice 11 : Trier les films par année et par titre</h2>
                     <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondant</p>
                     <ul>
-                        <li>Tirez parti du data-binding</li>
+                        <li>Tirez partie du data-binding</li>
                         <li>Les filtres peuvent être chaînés</li>
                         <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
                     </ul>
@@ -710,7 +726,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 12 : Je veux de vrais étoiles</h2>
+                    <h2>Exercice 12 : Je veux de vraies étoiles</h2>
                     <p>git checkout -f step-9</p>
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
@@ -723,7 +739,7 @@ angularMovieApp.filter('greet', function () {
                     <h2>Exercice 13 : Une image vide par défault</h2>
                     <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
                     <ul>
-                        <li>Réfléchissez sur quoi appliquer le filtre</li>
+                        <li>Mmmmhh, sur quoi vais-je appliquer le filtre ?</li>
                     </ul>
                 </section>
 
@@ -769,10 +785,11 @@ angularMovieApp.filter('greet', function () {
                 <section class="question">
                     <h2>Exercice 14 : Une liste de films plus compacte</h2>
                     <p>git checkout -f step-10</p>
-                    <p>Vous allez permet à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
+                    <p>Vous allez permettre à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
                     <ul>
-                        <li>Un bouton vient d'être rajouter.</li>
+                        <li>Un bouton vient d'être rajouté.</li>
                         <li>Utiliser la directive <code>ng-switch</code></li>
+                        <li>Tirez partie du data-binding</li>
                         <li>Aidez vous du snippet de code de la slide suivante pour une vue en mode tableau</li>
                     </ul>
                 </section>
@@ -835,7 +852,7 @@ angularMovieApp.filter('greet', function () {
                 <section>
                     <h2>Difficultés</h2>
                     <ul>
-                        <li class="fragment">Ecriture des directives compliqués si on ne maîtrise pas le processu de compilation AngularJS</li>
+                        <li class="fragment">Ecriture des directives compliquées si on ne maîtrise pas le processu de compilation AngularJS</li>
                         <li class="fragment">Le data-binding bi-directionnel ne fonctionne pas hors du "monde" AngularJS. Il faut utiliser
                             <code>$scope.watch()</code> et <code>$scope.$apply()</code> pour surveiller et mettre à jour manuellement une valeur
                         </li>

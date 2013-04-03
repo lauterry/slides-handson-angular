@@ -6,7 +6,7 @@
 .reveal section .orange {
     color: #ff4500;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 80px;
     font-family: sans-serif;
 }
 
@@ -16,4 +16,8 @@
 
 .answer h2, .answer p:first-of-type {
     color: #9acd32;
+}
+
+.help-js {
+    color: rgb(164, 218, 26);
 }
