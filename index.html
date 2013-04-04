@@ -470,7 +470,6 @@ $http.get(url, options)
                     <section class="question">
                         <h2>Exercice 6 : Fini les données en dur.</h2>
                         <p>Récupérer les films à partir du serveur. Idem pour l'ajout de film</p>
-                        <p>git checkout -f step-4</p>
                         <ul>API :
                             <li><code>GET /server/api/movies</code></li>
                             <li><code>POST /server/api/movies</code></li>
@@ -580,10 +579,11 @@ angularMovieApp.config(function($routeProvider) {
                     <p>git checkout -f step-5-edit</p>
                     <p>Un bouton de modification vient d'être ajouté pour chaque film. Implémenter son action</p>
                     <ul>
-                        <li>Petite contrainte : La page d'édition doit être accessible via l'url /#/movies/edit/:id</li>
-                        <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
                         <li>Utiliser le service <code>$location.path('/path')</code> pour naviguer vers /#/path</li>
+                        <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
                         <li>API : <code>PUT /server/api/movies</code></li>
+                        <li>Petite contrainte : Pas de popup. La page d'édition doit être accessible via l'url /#/movies/edit/:id</li>
+                        <li>Utiliser un nouveau fichier HTML pour la page d'édition et lui affecter un nouveau controller</li>
                     </ul>
                 </section>
 
@@ -606,7 +606,7 @@ angularMovieApp.config(function($routeProvider) {
                         <pre><code class="javascript" contenteditable>
 myModuleApp.service("MonService", function ($http, dep1, dep2, ...) {
     return {
-        faireUnTruc() : function(){
+        faireUnTruc : function(){
             /* utilisation de $http */
         };
     };
@@ -720,8 +720,8 @@ angularMovieApp.filter('greet', function () {
 });
                         </code></pre>
                         <pre><code class="html" contenteditable>
-&lt;div&gt;{{name || greet}}&lt;/div&gt;
-&lt;div&gt;{{name || greet:arg1:arg2}}&lt;/div&gt;
+&lt;div&gt;{{name | greet}}&lt;/div&gt;
+&lt;div&gt;{{name | greet:arg1:arg2}}&lt;/div&gt;
                         </code></pre>
                 </section>
 
@@ -829,33 +829,91 @@ angularMovieApp.filter('greet', function () {
             <section>
                 <section>
                     <h2>Outils autour d'AngularJS</h2>
+                </section>
+
+                <section>
+                    <h2>Batarang</h2>
+                    <a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk"><img src="img/batarang.png" alt=""></a>
+                </section>
+
+                <section>
+                    <h2>Yeoman</h2>
+                    <a href="http://yeoman.io/"><img src="img/yeoman.png" alt=""></a>
+                </section>
+
+                <section>
+                    <h2>Karma (Testacular)</h2>
+                    <a href="http://karma-runner.github.com/0.8/index.html"><img src="img/karma.png" alt=""></a>
+                </section>
+
+                <section>
+                    <h2>Plugin Intellij / webstorm</h2>
+                    <a href="http://plugins.jetbrains.com/plugin?pr=&pluginId=6971"><img src="img/pluginidea.png" alt=""></a>
+                </section>
+
+                <section>
+                    <h2>AngularUI</h2>
+                    <a href="http://angular-ui.github.com/"><img src="img/angularui.png" alt=""></a>
+                </section>
+
+                <section>
+                    <h2>AngularStrap</h2>
+                    <a href="http://mgcrea.github.com/angular-strap/"><img src="img/angularstrap.png" alt=""></a>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Ressources</h2>
                     <ul>
-                        <li class="fragment"><a
-                                href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk">Batarang</a>, une extension Chrome</li>
-                        <li class="fragment"><a href="http://yeoman.io/">Yeoman</a>, le process du développeur Web moderne</li>
-                        <li class="fragment"><a href="http://vojtajina.github.com/testacular/">Testacular</a>, un lanceur de tests spectaculaire</li>
-                        <li class="fragment"><a href="http://plugins.jetbrains.com/plugin?pr=&pluginId=6971">Plugin Intellij / webstorm</a></li>
+                        <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Tutorial Officiel</a></li>
+                        <li class="fragment"><a href="http://www.youtube.com/user/angularjs">Chaîne Youtube AngularJS Officiel</a></li>
+                        <li class="fragment"><a href="http://www.yearofmoo.com/tags/AngularJS.html">Year Of Moo</a></li>
+                        <li class="fragment"><a href="http://www.frangular.com/">AngularFR</a> , par Thierry Chatel</li>
+                        <li class="fragment"><a href="http://www.itaware.eu/tag/angularjs/">I.T Aware</a> , par Sébastien Letélié</li>
+                        <li class="fragment"><a href="http://egghead.io/">egghead.io</a> Plein de vidéos réalisées par John Lindquist</li>
+                        <li class="fragment"><a href="https://plus.google.com/communities/109984348857296908402?hl=fr">Communauté Google+ française AngularJS</a></li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Pourquoi AngularJS ?</h2>
+                    <ul>
+                        <li class="fragment">Beaucoup moins de code à écrire grâce au data-binding bi-directionnel</li>
+                        <li class="fragment">Modularisation du code avec les modules et les services injectables : Pas de pollution de
+                            l'espace global
+                        </li>
+                        <li class="fragment">AngularJS peut être actif sur une portion de ta page HTML</li>
+                        <li class="fragment">Créer ses propres composants réutilisable grâce aux directives</li>
+                        <li class="fragment">Développement guidée</li>
+                        <li class="fragment">Framework qui promeut les tests unitaires</li>
+                        <li class="fragment">API bien documentée pour certains aspects</li>
+                        <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Excellent tutorial pour débuter</a></li>
+                        <li class="fragment">Ticket d'entrée pas cher</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Pourquoi AngularJS ?</h2>
-                    <ul>
-                        <li class="fragment">Beaucoup moins de code de plomberie grâce au data-binding bi-directionnel</li>
-                        <li class="fragment">Modularisation & Encapsulation</li>
-                        <li class="fragment">AngularJS peut être actif sur une portion de ta page</li>
-                        <li class="fragment">Créer ses propres composants réutilisables</li>
-                        <li class="fragment">API bien documenté</li>
-                        <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Excellent tutorial pour débuter</a></li>
-                    </ul>
-                </section>
-                <section>
                     <h2>Difficultés</h2>
                     <ul>
-                        <li class="fragment">Ecriture des directives compliquées si on ne maîtrise pas le processu de compilation AngularJS</li>
+                        <li class="fragment">Documentation officielle pauvre sur certaines notions</li>
+                        <li class="fragment">Ecriture des directives pouvant être compliquée si on ne maîtrise pas son cycle de vie</li>
+                        <ul class="fragment">
+                            <li>Compilation</li>
+                            <li>Link</li>
+                            <li>Transclusion</li>
+                            <li>Restriction</li>
+                        </ul>
                         <li class="fragment">Le data-binding bi-directionnel ne fonctionne pas hors du "monde" AngularJS. Il faut utiliser
-                            <code>$scope.watch()</code> et <code>$scope.$apply()</code> pour surveiller et mettre à jour manuellement une valeur
+                            <code>$scope.$watch()</code> et <code>$scope.$apply()</code> pour surveiller et mettre à jour manuellement une valeur
                         </li>
+                        <li class="fragment">Intégration librairies UI jQuery pouvant être problématique</li>
+                        <ul class="fragment">
+                            <li>Je la wrappe dans une directive ?</li>
+                            <li>... ou je crée une directive ?</li>
+                        </ul>
                     </ul>
                 </section>
             </section>
