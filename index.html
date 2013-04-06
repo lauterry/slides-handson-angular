@@ -760,17 +760,9 @@ angularMovieApp.filter('greet', function () {
                     <p>Etendre le langage HTML</p>
                     <p>Créer ses propres composants</p>
                 </section>
+
                 <section>
-                    <h2>Directives vues</h2>
-                    <ul>
-                        <li>ng-repeat</li>
-                        <li>ng-model</li>
-                        <li>ng-controller</li>
-                        <li>ng-switch</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Directives ng-switch</h2>
+                    <h2>Directive ng-switch</h2>
                     <p>Change la structure du DOM de manière conditionnel</p>
                     <pre><code class="html">
 &lt;section ng-switch on="value"&gt;
@@ -822,6 +814,80 @@ angularMovieApp.filter('greet', function () {
                 <section class="answer">
                     <h2>Solution</h2>
                     <p>git checkout -f step-10-solution</p>
+                </section>
+
+                <section>
+                    <h2>Directives vues</h2>
+                    <ul>
+                        <li>ng-repeat</li>
+                        <li>ng-model</li>
+                        <li>ng-controller</li>
+                        <li>ng-switch</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                    <p>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'E,A,C,M',
+        transclude : true,
+        scope : {},
+        link : function(scope, element, attributes){
+
+        }
+    };
+});
+                       </code></pre>
+
+                    <pre class="fragment"><code class="html" contenteditable>
+&lt;ma-directive&gt;&lt;/ma-directive&gt;
+&lt;div ma-directive="expression" &gt;&lt;/div&gt;
+&lt;div class="ma-directive : expression" &gt;&lt;/div&gt;
+&lt;!--  ma-directive : expression" &gt;&lt;/--&gt;
+                    </code></pre>
+                    </p>
+                </section>
+
+                <section>
+                    <h1>Création d'une directive en live</h1>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 15 : Créez votre directive alertMessage</h2>
+                    <p>git checkout -f step-11</p>
+                    <p>Si vous ajoutez un film dont le nom existe déjà, une erreur s'affiche au dessus du formulaire.
+                    Le code se trouve dans le fichier js/controllers.js ligne 70 à 75 et n'est pas réutilisable.</p>
+                    <p>Exploitez les directives angularJS pour créer un composant <code>alertMessage</code> réutilisable</p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Créez une directive <code>alertMessage</code></li>
+                        <li>Reprendre le code HTML et l'affecter en tant que template de la directive</li>
+                        <li>Coté HTML, l'élément <code>alert-message</code> pourra contenir 3 attributs : le titre, le contenu et un boolean pour afficher l'alerte</li>
+                    </ul>
+                    <pre><code class="html" contenteditable>
+&lt;alert-message  show="show" title="{{title}}" message="{{message}}" &gt;&lt;/alert-message&gt;
+                    </code></pre>
+
+                    <ul>
+                        <li>Utiliser la propriété <code>scope</code> pour définir le lien entre les attributs de votre directive
+                        et les propriétés du scope de la directive</li>
+                        <li>Rajouter un bouton permettant de faire disparaitre l'alerte.</li>
+                        <li>Rajouter un bouton permettant d'afficher le titre et le contenu dans la console.</li>
+                    </ul>
+                </section>
+
+
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p>git checkout -f step-11-solution</p>
                 </section>
 
             </section>
