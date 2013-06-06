@@ -114,16 +114,17 @@
                     <section>
                         <h2>Récupérer le code</h2>
                         <a href="https://github.com/lauterry/angularmovie">git clone https://github.com/lauterry/angularmovie.git</a>
-                        <p>git checkout -f step-0</p>
                         <p>ou</p>
                         <p><a href="https://drive.google.com/folderview?id=0B_3kwg7TeB50bFZnUXVTeUNtb2M&usp=sharing">Récupérer à partir de Google Drive</a></p>
+                    </section>
+                    <section>
+                        <p>git checkout -f step-0</p>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h1>Initialisation</h1>
-                        <p>git checkout -f step-0</p>
+                        <h1>Initialisation et Double Data Binding</h1>
                     </section>
                     <section>
                         <p>Charger angularjs dans votre page ...</p>
@@ -166,56 +167,125 @@
                     </section>
 
                     <section>
-                        <h2>Data Binding bi-directionnel</h2>
+                        <div ng-app="angularRevealApp"  ng-controller="greetingController">
+                            <p>
+                                <input type="text" ng-model="greeting">
+                            </p>
+                            <p>Bonjour {{greeting}}</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript</h3>
+                            <pre><code class="html">
+&lt;html&gt;
+    Bonjour &lt;span id="name"&gt;&lt;/span&gt;
+    &lt;input type="text"/&gt;
+&lt;/html&gt;
+                            </code></pre>
+                            <pre><code class="javascript">
+window.onload = function(){
+
+    var span = document.getElementById('name');
+    var input = document.getElementsByTagName('input')[0];
+
+    input.onkeyup = function(){
+        if (span.textContent || span.textContent === "") {
+            span.textContent = input.value;
+        } else if(span.innerText || span.innerText === "") { // IE
+            span.innerText = input.value;
+        }
+    };
+};
+                            </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h3>jQuery</h3>
+                        <pre><code class="html">
+&lt;html&gt;
+    Bonjour &lt;span id="name"&gt;&lt;/span&gt;
+    &lt;input type="text"/&gt;
+&lt;/html&gt;
+                        </code></pre>
+                        <pre><code class="javascript">
+$(document).ready(function() {
+    var $input = $('input');
+    var $span = $('#name');
+
+    $input.keyup(function (event) {
+        $span.text(event.target.value);
+    });
+});
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>AngularJS</h2>
+                        <pre><code class="html" contenteditable>
+&lt;html ng-app&gt;
+    &lt;div&gt;
+        &lt;input type="text" ng-model="name"&gt;
+        &lt;p&gt;Bonjour {{name}}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </section>
+
+                    <section class="question">
+                        <h2>Exercice 1 : Saluez qui vous voulez !</h2>
+                        <p>Changer dynamiquement le nom par le contenu d'un champ de saisie</p>
+                        <ul>
+                            <li>Pensez à initialiser AngularJs dans la page <code>index.html</code></li>
+                            <li>La librairie angularjs est disponible dans le dossier <code>js/lib</code></li>
+                            <li>Rajouter un champ de saisie</li>
+                            <li>Nommons par exemple la variable <code>{{name}}</code></li>
+                            <li class="fragment warning">Remplacer AngularMovie par <code>{{name}}</code></li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Controller et Scope</h1>
+                    </section>
+                    <section>
                         <pre><code class="html" contenteditable>
 &lt;html ng-app&gt;
     &lt;div ng-controller="myController"&gt;
-        &lt;input type="text" ng-model="greeting"&gt;
-        &lt;p&gt;{{greeting}}&lt;/p&gt;
+        &lt;input type="text" ng-model="name"&gt;
+        &lt;p&gt;Hello {{name}}&lt;/p&gt;
     &lt;/div&gt;
 &lt;/html&gt;
                         </code></pre>
                         <pre><code class="javascript" contenteditable>
 function myController($scope){
-    $scope.greeting = 'Hello World';
+    $scope.name = 'World';
 }
                         </code></pre>
-                        <div ng-app="angularRevealApp" ng-controller="greetingController">
-                            <p>
-                                <input type="text" ng-model="greeting">
-                            </p>
-                            <p>{{greeting}}</p>
-                        </div>
                     </section>
 
                     <section class="question">
-                        <h2>Exercice 1 : Data-Binding</h2>
-                        <p>Créer un champ de saisie dans la page d'accueil et remplacer "Thierry LAU" par
-                            le contenu du champ
+                        <h2>Exercice 2 : Importance du Scope</h2>
+                        <p>
+                            Gardez les mêmes variables <code>{{name}}</code> mais leur affecter des valeurs différentes
                         </p>
                         <ul>
-                            <li>La librairie angularjs est disponible dans le répertoire js/lib</li>
-                            <li>Initialisation avec ng-app</li>
-                            <li>Utilisé la notation {{ }} et la directive ng-model</li>
-                            <li>Créer un contrôleur et utiliser la directive ng-controller</li>
+                            <li>Créez un fichier <code>app/js/app.js</code> et y écrire vos 2 controllers</li>
+                            <li>Attention à l'endroit où vous déclarez vos controllers dans la page HTML</li>
                         </ul>
                     </section>
 
                     <section>
-                        <h2>Data Binding bi-directionnel</h2>
-                        <pre><code class="html" contenteditable>
-&lt;html ng-app&gt;
-    &lt;div ng-controller="myController"&gt;
-        &lt;input type="text" ng-model="greeting"&gt;
-        &lt;p&gt;{{greeting}}&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/html&gt;
-                        </code></pre>
-                        <pre><code class="javascript" contenteditable>
-function myController($scope){
-    $scope.greeting = 'Hello World';
-}
-                        </code></pre>
+                        <img style="height:450px" src="img/scope0.png" alt=""/>
+                        <img src="img/scope4.png" alt=""/>
+                    </section>
+
+                    <section>
+                        <img style="height:450px" src="img/scope1.jpg" alt=""/>
+                        <img src="img/scope2.png" alt=""/>
                     </section>
 
                     <section>
@@ -248,77 +318,30 @@ myApp.controller('myController', function($scope){
 
                 <section>
                     <section>
-                        <h1>Templating avancée avec ng-repeat</h1>
+                        <h1>Templating avancée</h1>
                     </section>
                     <section>
-                        <h2>directive ng-repeat</h2>
+                        <h2>ng-repeat</h2>
                         <p>Itère dans une collection et génére un template par élément</p>
                         <pre><code class="html" contenteditable>
 &lt;ul&gt;
     &lt;li ng-repeat="fruit in fruits"&gt;
         /* répétition du template li par élément fruit */
+        {{ fruit.name }}
     &lt;/li&gt;
 &lt;/ul&gt;
                         </code></pre>
                     </section>
                     <section class="question">
-                        <h2>Exercice 2 : ng-répéter les films</h2>
+                        <h2>Exercice 3 : ng-répéter les films</h2>
                         <p>Afficher la liste des films en utilisant la directive ng-repeat</p>
                         <ul>
-                            <li>Créer un nouveau contrôleur pour la liste des films</li>
-                            <li>Créer une collection de film dans le contrôleur</li>
+                            <li>AngularJs est déjà actif dans la page <code>movie-list.html</code></li>
+                            <li>Créer un nouveau contrôleur nommé <code>moviesController</code> pour la liste des films</li>
+                            <li>Créer une collection de film dans le contrôleur  <button class="copy-button" onclick="copyMoviesData()">Liste des films</button></li>
+                            <li>Pensez à rendre dynamique le nombre de films affichés</li>
                             <li class="help-js">JS : accéder aux propriétés d'un object avec la notation pointée (ex : car.color)</li>
                         </ul>
-                         <pre><code class="javascript" contenteditable>
-movies = [
-    {
-        id: 1,
-        title : "Avatar",
-        releaseYear : "2010",
-        poster : "img/avatar.jpg",
-        directors : "James Cameron",
-        actors : "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang, Michelle Rodriguez",
-        synopsis : "Sur la lointaine planète de Pandora, Jake Sully, un héros malgré lui, " +
-        "se lance dans une quête de rédemption, de découverte, d'amour inattendu, dont l'issue sera un " +
-        "combat héroïque pour sauver toute une civilisation.",
-        rate : "3"
-    },
-    {
-        id: 2,
-        title : "Seigneur des Anneaux : La Communauté de l'Anneau",
-        releaseYear : "2003",
-        poster : "img/seigneurdesanneaux1.jpg",
-        directors : "Peter Jackson",
-        actors : "Elijah Wood, Sean Astin, Ian McKellen, Sala Baker, Viggo Mortensen",
-        synopsis : "Frodon le Hobbit hérite de l'Anneau Unique, un instrument de pouvoir absolu" +
-        "qui permettrait à Sauron, le Seigneur des ténèbres, de régner sur la Terre du Milieu." +
-        " Commence alors un vaste périple visant à la destruction de l'objet.",
-        rate : "5"
-    },
-    {
-        id: 3,
-        title : "The Grudge",
-        releaseYear : "2004",
-        poster : "img/thegrudge.jpg",
-        directors : "Takashi Shimizu",
-        actors : "Sarah Michelle Gellar, Jason Behr, Clea DuVall, Kadee Strickland, Bill Pullman",
-        synopsis : "Dans ce qui paraît être une paisible maison de Tokyo se cache un épouvantable fléau. " +
-        "Quiconque franchit le seuil de la demeure est aussitôt frappé par une malédiction qui ne tardera " +
-        "pas à le tuer dans un sentiment d'indicible rage...",
-        rate : "4"
-    },
-    {
-        id: 4,
-        title : "Yip Man 2",
-        releaseYear : "2010",
-        poster : "img/yipman.jpg",
-        directors : "Wilson Yip",
-        actors : "Donnie Yen, Sammo Hung Kam-Bo, Simon Yam, Lynn Hung, Xiaoming Huang",
-        synopsis : "Film biographique sur la vie de Ip Man, pionnier du Wing Chun et maitre de Bruce Lee.",
-        rate : "5"
-    }
-];
-                         </code></pre>
 
                     </section>
 
@@ -349,37 +372,26 @@ function myController($scope){
                     </code></pre>
                 </section>
 
-                <section class="question">
-                    <h2>Exercice 3 : Gérer un clic</h2>
+                <section>
                     <p>git checkout -f step-3</p>
-                    <p>Afficher une <code>window.alert()</code> avec les infos du films saisies dans le formulaire</p>
+                    <p>Ajout d'un modal Twitter Bootstrap</p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 4 : Gérer un click</h2>
+                    <p>Afficher une <code>window.alert()</code> avec quelques infos du films saisies dans le formulaire</p>
                     <ul>
-                        <li>Créer un nouveau controller pour gérer le formulaire</li>
+                        <li>Créer un nouveau controller nommé <code>movieFormController</code> pour gérer le formulaire</li>
                         <li>N'oubliez pas de binder les champs de saisies au <code>$scope</code></li>
                     </ul>
                 </section>
 
-            </section>
-
-            <section>
-                <section>
-                    <h1>Hiérarchie des scopes</h1>
-                    <ul>
-                        <li class="fragment">Une application contient un seul scope global appelé <code>$rootScope</code></li>
-                        <li class="fragment">mais plusieurs <code>$scope</code> enfants</li>
-                        <li class="fragment">Un scope est créé pour chaque contrôleur</li>
-                        <li class="fragment">Un scope créé est toujours enfant d'un scope parent ...</li>
-                        <li class="fragment">... et hérite des propriétés de ce dernier</li>
-                    </ul>
-                </section>
-
                 <section class="question">
-                    <h2>Exercice 4 : Ajouter un film dans la liste</h2>
+                    <h2>Exercice 5 : Ajouter un film dans la liste</h2>
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page</p>
                     <ul>
-                        <li>Un scope est créé pour chaque contrôleur</li>
-                        <li>Surveillez donc la position de vos directives ng-controller</li>
-                        <li>N'oubliez pas de mettre à jour le nombre de films dans la page</li>
+                        <li>Pensez à la hiérarchie des <code>$scope</code></li>
+                        <li>Surveillez la position de vos directives ng-controller</li>
                         <li>Pensez à réinitialiser le formulaire après chaque film rajouté</li>
                     </ul>
                 </section>
@@ -393,7 +405,9 @@ function myController($scope){
 
             <section>
                 <section>
-                    <h2>Propagation des évènements <code>$scope</code></h2>
+                    <h1>Propagation des évènements <code>$scope</code></h1>
+                </section>
+                <section>
                     <p class="fragment">Un évènement peut être "diffusé" aux <code>$scope</code> enfants ...</p>
                     <pre class="fragment"><code class="javascript" contenteditable>
 $scope.$broadcast('myEvent', param1, param2, ...);
@@ -411,10 +425,12 @@ $scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 5 : Ajouter un film dans la liste (autre solution)</h2>
+                    <h2>Exercice 6 : Ajouter un film dans la liste (autre solution)</h2>
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page en utilisant les évènements du <code>scope</code></p>
+                    <p>$emit ou $broadcast ?</p>
+                    <p></p>
                     <ul>
-                        <li>Cette solution peut remplacer celle de l'exercice 4</li>
+                        <li>Cette solution peut remplacer celle de l'exercice 5</li>
                     </ul>
                 </section>
 
@@ -426,10 +442,13 @@ $scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
             </section>
 
                 <section>
+
                     <section>
                         <h1>XHR & Injection de dépendances</h1>
-                        <p>Pour effectuer des appels XHR, angular dispose du service <code>$http</code> ...</p>
-                        <p>... injectable au même titre que le service <code>$scope</code></p>
+                    </section>
+                    <section>
+                        <p>Pour effectuer des appels XHR, Angular dispose du service <code>$http</code> ...</p>
+                        <p>... injectable comme le <code>$scope</code></p>
                         <pre><code class="javascript" contenteditable>
 function myController($scope, $http){
 
@@ -470,9 +489,9 @@ $http.get(url, options)
                     <section class="question">
                         <h2>Exercice 6 : Fini les données en dur.</h2>
                         <p>Récupérer les films à partir du serveur. Idem pour l'ajout de film</p>
-                        <ul>API :
-                            <li><code>GET /server/api/movies</code></li>
-                            <li><code>POST /server/api/movies</code></li>
+                        <ul>
+                            <li><code>GET     /server/api/movies</code></li>
+                            <li><code>POST    /server/api/movies</code></li>
                             <li>Attention au format du JSON reçu</li>
                         </ul>
                     </section>
@@ -541,7 +560,7 @@ angularMovieApp.config(function($routeProvider) {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 6 : Une vrai navigation côté client</h2>
+                    <h2>Exercice 6 : Une navigation côté client</h2>
                     <p>La navigation d'une page à l'autre peut être améliorée. Utiliser le service <code>$routeProvider</code>
                         et la directive <code>ng-view</code> pour ne garder qu'un fichier index.html
                     </p>
@@ -549,6 +568,7 @@ angularMovieApp.config(function($routeProvider) {
                         <li>Identifier dans votre page index.html les portions qui sont communes à toutes les pages et la partie qui est dynamique</li>
                         <li>Créer un répertoire app/partials où stocker les fragments de page spécifique</li>
                         <li>Utiliser soit l'attribut <code>controller</code> du service <code>$routeProvider</code>, soit la directive <code>ng-controller</code></li>
+                        <li>Penser à corriger les attributs <code>href</code> des liens de la barre de menu supérieure</li>
                     </ul>
                 </section>
 
@@ -562,10 +582,9 @@ angularMovieApp.config(function($routeProvider) {
                     <p>git checkout -f step-5-delete</p>
                     <p>Un bouton de suppression vient d'être ajouté pour chaque film. Implémenter son action</p>
                     <ul>
-                        <li>Utiliser ce que vous avez appris jusqu'ici</li>
                         <li>API : <code>DELETE /server/api/movies/:id </code></li>
                         <li>Astuce : Vous pouvez accéder au numéro d'index courant de la collection dans ng-repeat via $index</li>
-                        <li class="help-js">Utiliser la méthode <code>array.splice(from, nb)</code> pour retirer le film supprimé du <code>$scope</code></li>
+                        <li class="help-js">Utiliser la méthode <code>array.splice(from, nb)</code> pour retirer le film de <code>$scope.movies</code></li>
                     </ul>
                 </section>
 
@@ -579,11 +598,11 @@ angularMovieApp.config(function($routeProvider) {
                     <p>git checkout -f step-5-edit</p>
                     <p>Un bouton de modification vient d'être ajouté pour chaque film. Implémenter son action</p>
                     <ul>
-                        <li>Utiliser le service <code>$location.path('/path')</code> pour naviguer vers /#/path</li>
-                        <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
-                        <li>API : <code>PUT /server/api/movies</code></li>
-                        <li>Petite contrainte : Pas de popup. La page d'édition doit être accessible via l'url /#/movies/edit/:id</li>
+                        <li>Petite contrainte : Pas de popup. La page d'édition doit être accessible via l'url <code>/#/movies/edit/:id</code></li>
                         <li>Utiliser un nouveau fichier HTML pour la page d'édition et lui affecter un nouveau controller</li>
+                        <li>API : <code>PUT /server/api/movies</code></li>
+                        <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
+                        <li>Utiliser le service <code>$location.path('/path')</code> pour naviguer vers <code>/#/path</code></li>
                     </ul>
                 </section>
 
@@ -604,18 +623,21 @@ angularMovieApp.config(function($routeProvider) {
                 <section>
                     <h2>Créer ses propres services</h2>
                         <pre><code class="javascript" contenteditable>
-myModuleApp.service("MonService", function ($http, dep1, dep2, ...) {
+myModuleApp.service("CountService", function (dep1, dep2, ...) {
+
+    var counter = 0;
+
     return {
-        faireUnTruc : function(){
-            /* utilisation de $http */
+        increment : function(){
+            counter = counter + 1;
         };
     };
 });
                         </code></pre>
 
                         <pre class="fragment"><code class="javascript" contenteditable>
-function myController($scope, MonService){
-    MonService.faireUnTruc();
+function myController($scope, CountService){
+    CountService.increment();
 };
                         </code></pre>
                 </section>
@@ -653,8 +675,9 @@ $scope.amount = 1234.56;
                         </code></pre>
                 </section>
                 <section>
-                    <h2>D'autres filtres</h2>
+                    <h2>Filtres AngularJS</h2>
                     <ul>
+                        <li>currency</li>
                         <li>date</li>
                         <li>lowercase</li>
                         <li>uppercase</li>
