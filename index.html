@@ -44,67 +44,25 @@
                         <h3>Transcendez vos développements Web avec AngularJS</h3>
                         <h4>- Hands On -</h4>
                         <p>
-                            <small>presenté par <a href="http://gplus.to/lauthierry">LAU Thierry</a> / <a href="https://twitter.com/laut3rry">@laut3rry</a></small>
+                            <small><a href="http://gplus.to/lauthierry">Thierry Lau</a> / <a href="https://twitter.com/laut3rry">@laut3rry</a></small>
                         </p>
-                    </section>
-
-                    <section>
-                        <h2>Développeur Front End chez <span class="orange">[</span>sf<span class="orange">Ξ</span>ir<span class="orange">]</span></h2>
-                        <a href="http://www.sfeir.com"><img src="img/sfeir.png" alt=""></a>
-                    </section>
-                    <section>
-                        <h2>Anime la page HTML5 * CSS3 - ʕ๏๏ʔ</h2>
-                        <figure>
-                            <a href="https://plus.google.com/101291710590780094468/posts"><img src="img/page_google_plus.png" alt=""></a>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2>et la communauté HTML5 * CSS3 [FR]</h2>
-                        <figure>
-                            <a href="http://gplus.to/html5css3fr"><img src="img/communaute_google_plus.png" alt=""></a>
-                        </figure>
-                    </section>
-                    <section id="fan">
-                        <h1>F</h1>
-                        <img src="img/angularjs.png" height="300px" alt="A">
-                        <h1>N</h1>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Déroulement</h2>
-                        <ul>
-                            <li>Présentation des concepts clé d'AngularJS ...</li>
-                            <li>... et 14 exercices pour les mettre en pratique</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Plan</h2>
-                        <ol>
-                            <li>initialisation</li>
-                            <li>expression avec {{ }}</li>
-                            <li>controller</li>
-                            <li>$scope</li>
-                            <li>directives angularJS</li>
-                            <li>créez vos propres composants</li>
-                            <li>filtres angularJS</li>
-                            <li>créez vos propres filtres</li>
-                            <li>appels XHR</li>
-                            <li>navigation coté client</li>
-                        </ol>
+                        <p>
+                            <small><a href="https://plus.google.com/113593809529774542214/posts">Sébastien Letélié</a> / <a href="https://twitter.com/sebmade‎">@sebmade</a></small>
+                        </p>
+                        <p>
+                            <small><a href="https://plus.google.com/113505929077720042958">Thierry Chatel</a> / <a href="https://twitter.com/ThierryChatel‎">@ThierryChatel</a></small>
+                        </p>
                     </section>
                 </section>
 
                 <section>
                     <section>
                         <h2>Pré-requis</h2>
-                        <p>Vous devez avoir ... </p>
                         <ul>
                             <li>un client git pour récupérer le code source</li>
-                            <li>node.js pour lancer l'application</li>
-                            <li>un navigateur Chrome, Firefox ou IE9+</li>
-                            <li>votre éditeur favori</li>
+                            <li class="fragment">node.js pour lancer l'application</li>
+                            <li class="fragment">un navigateur Chrome, Firefox ou IE9+</li>
+                            <li class="fragment">votre éditeur de code favori</li>
                         </ul>
                     </section>
                     <section>
@@ -117,8 +75,41 @@
                         <p>ou</p>
                         <p><a href="https://drive.google.com/folderview?id=0B_3kwg7TeB50bFZnUXVTeUNtb2M&usp=sharing">Récupérer à partir de Google Drive</a></p>
                     </section>
+                </section>
+
+                <section>
                     <section>
-                        <p>git checkout -f step-0</p>
+                        <h1>Déroulement</h1>
+                    </section>
+                    <section>
+                        <p>Présentation des concepts clé d'AngularJS ...</p>
+                        <p class="fragment">... et 14 exercices pour les mettre en pratique</p>
+                    </section>
+                    <section>
+                        <h2>Simples pages HTML statiques</h2>
+                        <img src="img/from.jpg" alt="Simples pages HTML statiques"/>
+                    </section>
+                    <section>
+                        <h2>Application Web Moderne</h2>
+                        <img src="img/to.jpg" alt="Application Web Moderne"/>
+                    </section>
+                    <section>
+                        <ol>
+                            <h2>Pour chaque concept :</h2>
+                            <li class="fragment">Présentation</li>
+                            <li class="fragment">Enoncé de l'exercice</li>
+                            <li class="fragment">A vous de jouer !</li>
+                            <li class="fragment">Live coding de la réponse + explications</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>A la traine ?</h2>
+                        <p class="fragment">14 exos = 14 branches git</p>
+                        <p class="fragment"><code>git checkout -f step-#</code></p>
+                    </section>
+                    <section>
+                        <h2>C'est parti !</h2>
+                        <p><code>git checkout -f step-0</code></p>
                     </section>
                 </section>
 
@@ -241,7 +232,7 @@ $(document).ready(function() {
                             <li>La librairie angularjs est disponible dans le dossier <code>js/lib</code></li>
                             <li>Rajouter un champ de saisie</li>
                             <li>Nommons par exemple la variable <code>{{name}}</code></li>
-                            <li class="fragment warning">Remplacer AngularMovie par <code>{{name}}</code></li>
+                            <li class="fragment warning">Remplacer le titre AngularMovie par <code>{{name}}</code></li>
                         </ul>
                     </section>
 
@@ -310,7 +301,7 @@ myApp.controller('myController', function($scope){
 
                     <section class="answer">
                         <h2>Solution</h2>
-                        <p>git checkout -f step-1</p>
+                        <p><code>git checkout -f step-1</code></p>
                     </section>
 
                 </section>
@@ -338,16 +329,63 @@ myApp.controller('myController', function($scope){
                         <ul>
                             <li>AngularJs est déjà actif dans la page <code>movie-list.html</code></li>
                             <li>Créer un nouveau contrôleur nommé <code>moviesController</code> pour la liste des films</li>
-                            <li>Créer une collection de film dans le contrôleur  <button class="copy-button" onclick="copyMoviesData()">Liste des films</button></li>
+                            <li>Créer une collection de film dans le contrôleur. Aidez vous de la slide suivante !</li>
                             <li>Pensez à rendre dynamique le nombre de films affichés</li>
                             <li class="help-js">JS : accéder aux propriétés d'un object avec la notation pointée (ex : car.color)</li>
                         </ul>
 
                     </section>
 
+                    <section>
+                        <pre><code class="javascript" contenteditable>
+[
+    {
+        "id":1,
+        "title":"Avatar",
+        "releaseYear":"2010",
+        "poster":"img/avatar.jpg",
+        "directors":"James Cameron",
+        "actors":"Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang, Michelle Rodriguez",
+        "synopsis":"Sur la lointaine planète de Pandora, Jake Sully, un héros malgré lui, se lance dans une quête de rédemption, de découverte, d'amour inattendu, dont l'issue sera un combat héroïque pour sauver toute une civilisation.",
+        "rate":"3"
+    },
+    {
+        "id":2,
+        "title":"Seigneur des Anneaux : La Communauté de l'Anneau",
+        "releaseYear":"2003",
+        "poster":"img/seigneurdesanneaux1.jpg",
+        "directors":"Peter Jackson",
+        "actors":"Elijah Wood, Sean Astin, Ian McKellen, Sala Baker, Viggo Mortensen",
+        "synopsis":"Frodon le Hobbit hérite de l'Anneau Unique, un instrument de pouvoir absoluqui permettrait à Sauron, le Seigneur des ténèbres, de régner sur la Terre du Milieu. Commence alors un vaste périple visant à la destruction de l'objet.",
+        "rate":"5"
+    },
+    {
+        "id":3,
+        "title":"The Grudge",
+        "releaseYear":"2004",
+        "poster":"img/thegrudge.jpg",
+        "directors":"Takashi Shimizu",
+        "actors":"Sarah Michelle Gellar, Jason Behr, Clea DuVall, Kadee Strickland, Bill Pullman",
+        "synopsis":"Dans ce qui paraît être une paisible maison de Tokyo se cache un épouvantable fléau. Quiconque franchit le seuil de la demeure est aussitôt frappé par une malédiction qui ne tardera pas à le tuer dans un sentiment d'indicible rage...",
+        "rate":"4"
+    },
+    {
+        "id":4,
+        "title":"Yip Man 2",
+        "releaseYear":"2010",
+        "poster":"img/yipman.jpg",
+        "directors":"Wilson Yip",
+        "actors":"Donnie Yen, Sammo Hung Kam-Bo, Simon Yam, Lynn Hung, Xiaoming Huang",
+        "synopsis":"Film biographique sur la vie de Ip Man, pionnier du Wing Chun et maitre de Bruce Lee.",
+        "rate":"5"
+    }
+]
+                        </code></pre>
+                    </section>
+
                     <section class="answer">
                         <h2>Solution</h2>
-                        <p>git checkout -f step-2</p>
+                        <p><code>git checkout -f step-2</code></p>
                     </section>
 
                 </section>
@@ -359,7 +397,7 @@ myApp.controller('myController', function($scope){
                 </section>
 
                 <section>
-                    <h2>Directive ng-click</h2>
+                    <h2>ng-click</h2>
                     <pre><code class="html" contenteditable>
 &lt;li ng-click="faireUnTruc(arg1, arg2, ...)"&gt;&lt;/li&gt;
                     </code></pre>
@@ -373,8 +411,8 @@ function myController($scope){
                 </section>
 
                 <section>
-                    <p>git checkout -f step-3</p>
-                    <p>Ajout d'un modal Twitter Bootstrap</p>
+                    <p><code>git checkout -f step-3</code></p>
+                    <p class="fragment">Ajout d'un modal Twitter Bootstrap</p>
                 </section>
 
                 <section class="question">
@@ -398,7 +436,7 @@ function myController($scope){
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-3-solution</p>
+                    <p><code>git checkout -f step-3-solution</code></p>
                 </section>
 
             </section>
@@ -436,13 +474,12 @@ $scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-3-scope-event</p>
+                    <p><code>git checkout -f step-3-scope-event</code></p>
                 </section>
 
             </section>
 
                 <section>
-
                     <section>
                         <h1>XHR & Injection de dépendances</h1>
                     </section>
@@ -474,7 +511,7 @@ $http.delete(url, options)
 
 
                     <section>
-                        <p>Callbacks</p>
+                        <p>Gérer les retours</p>
                         <pre><code class="javascript" contenteditable>
 $http.get(url, options)
     .success(function(data, status, headers, config){
@@ -498,7 +535,7 @@ $http.get(url, options)
 
                     <section class="answer">
                         <h2>Solution</h2>
-                        <p>git checkout -f step-4</p>
+                        <p><code>git checkout -f step-4</code></p>
                     </section>
 
                 </section>
@@ -507,6 +544,19 @@ $http.get(url, options)
                 <section>
                     <h1>Navigation côté client</h1>
                 </section>
+                <section>
+                    <p>http://localhost:3001/#/home</p>
+                    <img src="img/home.jpg" alt="#/home"/>
+                </section>
+                <section>
+                    <p>http://localhost:3001/#/movies</p>
+                    <img src="img/movies.jpg" alt="#/movies"/>
+                </section>
+                <section>
+                    <p>http://localhost:3001/#/movies/edit/1</p>
+                    <img src="img/editmovie.jpg" alt="#/movies/edit/1"/>
+                </section>
+
                 <section>
                     <h2>Service <code>$routeProvider</code></h2>
                     <p>Permet de configurer le template HTML à charger avec son contrôleur associé pour une URL donné</p>
@@ -556,7 +606,7 @@ angularMovieApp.config(function($routeProvider) {
     &lt;/footer&gt;
 &lt;/body&gt;
                     </code></pre>
-                    <p>Attention : une seule directive ng-view ne peut être utilisée</p>
+                    <p>Attention : Vous ne pouvez utiliser qu'une seule directive ng-view</p>
                 </section>
 
                 <section class="question">
@@ -565,7 +615,7 @@ angularMovieApp.config(function($routeProvider) {
                         et la directive <code>ng-view</code> pour ne garder qu'un fichier index.html
                     </p>
                     <ul>
-                        <li>Identifier dans votre page index.html les portions qui sont communes à toutes les pages et la partie qui est dynamique</li>
+                        <li>Identifier dans votre page index.html les portions qui sont communes à toutes les pages et la partie spécifique</li>
                         <li>Créer un répertoire app/partials où stocker les fragments de page spécifique</li>
                         <li>Utiliser soit l'attribut <code>controller</code> du service <code>$routeProvider</code>, soit la directive <code>ng-controller</code></li>
                         <li>Penser à corriger les attributs <code>href</code> des liens de la barre de menu supérieure</li>
@@ -574,13 +624,13 @@ angularMovieApp.config(function($routeProvider) {
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-5</p>
+                    <p><code>git checkout -f step-5</code></p>
                 </section>
 
                 <section class="question">
                     <h2>Exercice 7 : Supprimer un film</h2>
-                    <p>git checkout -f step-5-delete</p>
-                    <p>Un bouton de suppression vient d'être ajouté pour chaque film. Implémenter son action</p>
+                    <p><code>git checkout -f step-5-delete</code></p>
+                    <p>Un bouton de suppression vient d'être ajouté pour chaque film. Implémentez son action</p>
                     <ul>
                         <li>API : <code>DELETE /server/api/movies/:id </code></li>
                         <li>Astuce : Vous pouvez accéder au numéro d'index courant de la collection dans ng-repeat via $index</li>
@@ -590,13 +640,13 @@ angularMovieApp.config(function($routeProvider) {
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-5-delete-solution</p>
+                    <p><code>git checkout -f step-5-delete-solution</code></p>
                 </section>
 
                 <section class="question">
                     <h2>Exercice 8 : Modifier un film</h2>
-                    <p>git checkout -f step-5-edit</p>
-                    <p>Un bouton de modification vient d'être ajouté pour chaque film. Implémenter son action</p>
+                    <p><code>git checkout -f step-5-edit</code></p>
+                    <p>Un bouton de modification vient d'être ajouté pour chaque film. Implémentez son action</p>
                     <ul>
                         <li>Petite contrainte : Pas de popup. La page d'édition doit être accessible via l'url <code>/#/movies/edit/:id</code></li>
                         <li>Utiliser un nouveau fichier HTML pour la page d'édition et lui affecter un nouveau controller</li>
@@ -608,9 +658,44 @@ angularMovieApp.config(function($routeProvider) {
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-5-edit-solution</p>
+                    <p><code>git checkout -f step-5-edit-solution</code></p>
                 </section>
 
+            </section>
+
+
+            <section>
+                <section>
+                    <h2>Récapitulatifs</h2>
+                    <ul>
+                        <li class="fragment">Double Data Binding
+                            <ul>
+                                <li><code>$scope</code> : seule source de vérité</li>
+                                <li>Elimination du code de manipulation du DOM <p>(60 à 80% de votre code applicatif)</p></li>
+                            </ul>
+                        </li>
+
+                        <li class="fragment">Modèle Vue Contrôleur
+                            <ul>
+                                <li>Modèle = simple object javascript</li>
+                                <li>Vue = HTML valide</li>
+                                <li>Contrôleur = fonction javascript</li>
+                            </ul>
+                        </li>
+
+                        <li class="fragment">Single Page Application
+                            <ul>
+                                <li>Navigation client side</li>
+                                <li>Agnostique au Back end</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Vers des concepts plus avancées</h2>
+                </section>
             </section>
 
             <section>
@@ -625,8 +710,10 @@ angularMovieApp.config(function($routeProvider) {
                         <pre><code class="javascript" contenteditable>
 myModuleApp.service("CountService", function (dep1, dep2, ...) {
 
+    // privée
     var counter = 0;
 
+    // publique
     return {
         increment : function(){
             counter = counter + 1;
@@ -654,7 +741,7 @@ function myController($scope, CountService){
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-7</p>
+                    <p><code>git checkout -f step-7</code></p>
                 </section>
 
             </section>
@@ -665,14 +752,42 @@ function myController($scope, CountService){
                     <p>Formate les données avant de les afficher</p>
                 </section>
                 <section>
-                    <h2>Exemples</h2>
-                        <pre><code class="javascript" contenteditable>
+                    <p>hello</p>
+                    <p class="fragment">HELLO</p>
+                </section>
+                <section>
+                    <p>1368730200</p>
+                    <p class="fragment">Jeudi 16 mai 2013 20H50</p>
+                </section>
+                <section>
+                    <p>1234.562342</p>
+                    <p class="fragment">1 234,56 €</p>
+                </section>
+                <section data-transition="default">
+                    <p>[Thierry, David, Nelly, Alex, Claire]</p>
+                    <p class="fragment">[Alex, Claire, David, Nelly, Thierry]</p>
+                </section>
+                <section data-transition="default">
+                    <p>[pommes, pâtes, farine, PQ]</p>
+                    <p class="fragment">[PQ]</p>
+                </section>
+                <section data-transition="default">
+                    <h2>Transformer la donnée avant de l'afficher à l'utilisateur</h2>
+                </section>
+
+                <section>
+                   <pre><code class="javascript">
 $scope.amount = 1234.56;
-                        </code></pre>
-                        <pre><code class="html" contenteditable>
-&lt;div&gt;{{amount | currency}}&lt;/div&gt;        &lt;!-- $1,234.56 --&gt;
-&lt;div&gt;{{amount | currency:"USD$"}}&lt;/div&gt; &lt;!-- USD$1,234.56 --&gt;
-                        </code></pre>
+                   </code></pre>
+                   <pre class="fragment"><code class="html">
+&lt;div&gt;{{amount}}&lt;/div&gt;                     1234.56
+                   </code></pre>
+                   <pre class="fragment"><code class="html">
+&lt;div&gt;{{amount | currency}}&lt;/div&gt;           $1,234.56
+                   </code></pre>
+                   <pre class="fragment"><code class="html">
+&lt;div&gt;{{amount | currency:"USD$"}}&lt;/div&gt;    USD$1,234.56
+                   </code></pre>
                 </section>
                 <section>
                     <h2>Filtres AngularJS</h2>
@@ -693,15 +808,15 @@ $scope.amount = 1234.56;
                     <pre><code class="html" contenteditable>
 &lt;div&gt;{{collection | filter:predicat}}&lt;/div&gt;
                     </code></pre>
-                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriété qui contient ce prédicat sera retourné dans une nouvelle collection.</p>
+                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriétée qui contient ce prédicat sera retourné dans une nouvelle collection.</p>
                 </section>
 
                 <section class="question">
                     <h2>Exercice 10 : Rechercher un film</h2>
-                    <p>git checkout -f step-8</p>
+                    <p><code>git checkout -f step-8</code></p>
                     <p>Une barre de recherche est disponible. Implémentez une fonction de recherche en utilisant le filtre <code>filter</code></p>
                     <ul>
-                        <li>Tirez parti du data-binding</li>
+                        <li>Tirez partie du data-binding</li>
                         <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
                     </ul>
                 </section>
@@ -713,7 +828,7 @@ $scope.amount = 1234.56;
 <pre><code class="html" contenteditable>
    &lt;div&gt;{{collection | orderBy:predicat:reverse}}&lt;/div&gt;
 </code></pre>
-                    <p>Ce filtre accepte un predicat (string) en argument. Ce prédicat désigne la propriété sur lequel fait le tri.
+                    <p>Ce filtre accepte un predicat (string) en argument. Ce prédicat désigne la propriété sur lequel est fait le tri.
                         Un deuxième argument (boolean) permet d'inverser le sens du tri</p>
                 </section>
 
@@ -730,16 +845,20 @@ $scope.amount = 1234.56;
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-8-solution</p>
+                    <p><code>git checkout -f step-8-solution</code></p>
                 </section>
 
                 <section>
                     <h2>Créer ses propres filtres</h2>
                         <pre><code class="javascript" contenteditable>
 angularMovieApp.filter('greet', function () {
+
     return function(inputValue, arg1, arg2, ....) {
+
         return 'Hello ' + inputvalue;
+
     };
+
 });
                         </code></pre>
                         <pre><code class="html" contenteditable>
@@ -750,10 +869,10 @@ angularMovieApp.filter('greet', function () {
 
                 <section class="question">
                     <h2>Exercice 12 : Je veux de vraies étoiles</h2>
-                    <p>git checkout -f step-9</p>
+                    <p><code>git checkout -f step-9</code></p>
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
-                        <li>Voici la caractère unicode pour un étoile : \u2605</li>
+                        <li>Voici la caractère unicode pour une étoile : "\u2605"</li>
                         <li>Créez le filtre dans un nouveau fichier filters.js</li>
                     </ul>
                 </section>
@@ -768,7 +887,7 @@ angularMovieApp.filter('greet', function () {
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-9-solution</p>
+                    <p><code>git checkout -f step-9-solution</code></p>
                 </section>
 
 
@@ -799,7 +918,7 @@ angularMovieApp.filter('greet', function () {
 
                 <section class="question">
                     <h2>Exercice 14 : Une liste de films plus compacte</h2>
-                    <p>git checkout -f step-10</p>
+                    <p><code>git checkout -f step-10</code></p>
                     <p>Vous allez permettre à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
                     <ul>
                         <li>Un bouton vient d'être rajouté.</li>
@@ -836,7 +955,7 @@ angularMovieApp.filter('greet', function () {
 
                 <section class="answer">
                     <h2>Solution</h2>
-                    <p>git checkout -f step-10-solution</p>
+                    <p><code>git checkout -f step-10-solution</code></p>
                 </section>
 
                 <section>
@@ -850,8 +969,91 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section>
+                    <h2>Plusieurs types d'invocations possibles</h2>
+                    <pre><code class="html">
+    &lt;div navbar &gt;&lt;/div&gt;
+                    </code></pre>
+                     <pre><code class="html">
+    &lt;navbar&gt;&lt;/navbar&gt;
+                     </code></pre>
+                     <pre><code class="html">
+    &lt;div class="navbar" &gt;&lt;/div&gt;
+                     </code></pre>
+                     <pre><code class="html">
+    &lt;!-- directive : navbar --&gt;
+                     </code></pre>
+                </section>
+
+                <section>
+                    <img src="img/tabs.png" height="300px" alt="Tabs"/>
+                    <pre class="fragment" ><code class="html">
+    &lt;ul class="nav-tabs"&gt;
+        &lt;li class="active"&gt;
+            &lt;a href="#"&gt;Primary tab&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;Primary tab&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;Primary tab&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <img src="img/tabs.png" height="300px" alt="Tabs"/>
+                    <pre><code class="html">
+    &lt;tabs&gt;
+        &lt;pane title="Primary tab" active&gt;
+            &lt;!-- contenu --&gt;
+        &lt;/pane&gt;
+        &lt;pane title="Secondary tab"&gt;
+            &lt;!-- contenu --&gt;
+        &lt;/pane&gt;
+        &lt;pane title="some other tab"&gt;
+            &lt;!-- contenu --&gt;
+        &lt;/pane&gt;
+    &lt;/tabs&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Libérez votre imagination</h2>
+                    <pre><code class="html">
+        &lt;calendar&gt;&lt;/calendar&gt;
+                    </code></pre>
+                    <pre><code class="html">
+        &lt;progress-bar&gt;&lt;/progress-bar&gt;
+                    </code></pre>
+                    <pre><code class="html">
+        &lt;dialog&gt;&lt;/dialog&gt;
+                    </code></pre>
+                    <pre><code class="html">
+        &lt;datepicker&gt;&lt;/datepicker&gt;
+                    </code></pre>
+                    <pre><code class="html">
+        &lt;accordion&gt;&lt;/accordion&gt;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer ses propres directives</h2>
+                    <ul>
+                        <li>Scope</li>
+                        <li>Linking function</li>
+                        <li>Compile</li>
+                        <li>Restriction</li>
+                        <li>Transclusion</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <img src="img/wtf.gif" height="400px" alt="WTF !!!"/>
+                </section>
+
+                <section>
                     <h2>Créer votre propre directive</h2>
-                    <p>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -867,57 +1069,17 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
     };
 });
                        </code></pre>
-
-                    <pre class="fragment"><code class="html" contenteditable>
-&lt;ma-directive&gt;&lt;/ma-directive&gt;
-&lt;div ma-directive="expression" &gt;&lt;/div&gt;
-&lt;div class="ma-directive : expression" &gt;&lt;/div&gt;
-&lt;!--  ma-directive : expression" &gt;&lt;/--&gt;
-                    </code></pre>
-                    </p>
                 </section>
 
                 <section>
-                    <h1>Création d'une directive en live</h1>
-                </section>
-
-                <section class="question">
-                    <h2>Exercice 15 : Créez votre directive alertMessage</h2>
-                    <p>git checkout -f step-11</p>
-                    <p>Si vous ajoutez un film dont le nom existe déjà, une erreur s'affiche au dessus du formulaire.
-                    Le code se trouve dans le fichier js/controllers.js ligne 70 à 75 et n'est pas réutilisable.</p>
-                    <p>Exploitez les directives angularJS pour créer un composant <code>alertMessage</code> réutilisable</p>
-                </section>
-
-                <section>
-                    <ul>
-                        <li>Créez une directive <code>alertMessage</code></li>
-                        <li>Reprendre le code HTML et l'affecter en tant que template de la directive</li>
-                        <li>Coté HTML, l'élément <code>alert-message</code> pourra contenir 3 attributs : le titre, le contenu et un boolean pour afficher l'alerte</li>
-                    </ul>
-                    <pre><code class="html" contenteditable>
-&lt;alert-message  show="show" title="{{title}}" message="{{message}}" &gt;&lt;/alert-message&gt;
-                    </code></pre>
-
-                    <ul>
-                        <li>Utiliser la propriété <code>scope</code> pour définir le lien entre les attributs de votre directive
-                        et les propriétés du scope de la directive</li>
-                        <li>Rajouter un bouton permettant de faire disparaitre l'alerte.</li>
-                        <li>Rajouter un bouton permettant d'afficher le titre et le contenu dans la console.</li>
-                    </ul>
-                </section>
-
-
-                <section class="answer">
-                    <h2>Solution</h2>
-                    <p>git checkout -f step-11-solution</p>
+                    <h1>{{ demo }}</h1>
                 </section>
 
             </section>
 
             <section>
                 <section>
-                    <h2>Outils autour d'AngularJS</h2>
+                    <h1>Outils autour d'AngularJS</h1>
                 </section>
 
                 <section>
@@ -953,9 +1115,11 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
             <section>
                 <section>
-                    <h2>Ressources</h2>
+                    <h1>Ressources</h1>
+                </section>
+                <section>
                     <ul>
-                        <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Tutorial Officiel</a></li>
+                        <li><a href="http://docs.angularjs.org/tutorial">Tutorial Officiel</a></li>
                         <li class="fragment"><a href="http://www.youtube.com/user/angularjs">Chaîne Youtube AngularJS Officiel</a></li>
                         <li class="fragment"><a href="http://www.yearofmoo.com/tags/AngularJS.html">Year Of Moo</a></li>
                         <li class="fragment"><a href="http://www.frangular.com/">AngularFR</a> , par Thierry Chatel</li>
@@ -968,9 +1132,11 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
             <section>
                 <section>
-                    <h2>Pourquoi AngularJS ?</h2>
+                    <h1>Pourquoi AngularJS ?</h1>
+                </section>
+                <section>
                     <ul>
-                        <li class="fragment">Beaucoup moins de code à écrire grâce au data-binding bi-directionnel</li>
+                        <li>Beaucoup moins de code à écrire grâce au data-binding bi-directionnel</li>
                         <li class="fragment">Modularisation du code avec les modules et les services injectables : Pas de pollution de
                             l'espace global
                         </li>
@@ -980,14 +1146,15 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                         <li class="fragment">Framework qui promeut les tests unitaires</li>
                         <li class="fragment">API bien documentée pour certains aspects</li>
                         <li class="fragment"><a href="http://docs.angularjs.org/tutorial">Excellent tutorial pour débuter</a></li>
-                        <li class="fragment">Ticket d'entrée pas cher</li>
                     </ul>
                 </section>
 
                 <section>
                     <h2>Difficultés</h2>
+                </section>
+                <section>
                     <ul>
-                        <li class="fragment">Documentation officielle pauvre sur certaines notions</li>
+                        <li>Documentation officielle pauvre sur certaines notions</li>
                         <li class="fragment">Ecriture des directives pouvant être compliquée si on ne maîtrise pas son cycle de vie</li>
                         <ul class="fragment">
                             <li>Compilation</li>
@@ -1009,8 +1176,9 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
             <section>
                 <h3>Merci de votre attention !</h3>
-                <p>twitter : <a href="https://twitter.com/laut3rry">@laut3rry</a></p>
-                <p>google + : <a href="http://gplus.to/lauthierry">http://gplus.to/lauthierry</a></p>
+                <p>Thierry Lau - <a href="https://twitter.com/laut3rry">@laut3rry</a></p>
+                <p>Sébastien Letélié - <a href="https://twitter.com/sebmade‎">@sebmade</a></p>
+                <p>Thierry Chatel - <a href="https://twitter.com/ThierryChatel‎">@ThierryChatel</a></p>
             </section>
 
 			</div>
