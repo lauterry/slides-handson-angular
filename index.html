@@ -329,9 +329,9 @@ myApp.controller('myController', function($scope){
                         <ul>
                             <li>AngularJs est déjà actif dans la page <code>movie-list.html</code></li>
                             <li>Créer un nouveau contrôleur nommé <code>moviesController</code> pour la liste des films</li>
-                            <li>Créer une collection de film dans le contrôleur. Aidez vous de la slide suivante !</li>
+                            <li>Créer une collection de films dans le contrôleur. Aidez vous de la slide suivante !</li>
                             <li>Pensez à rendre dynamique le nombre de films affichés</li>
-                            <li class="help-js">JS : accéder aux propriétés d'un object avec la notation pointée (ex : car.color)</li>
+                            <li class="help-js">JS : accéder aux propriétés d'un objet avec la notation pointée (ex : car.color)</li>
                         </ul>
 
                     </section>
@@ -559,7 +559,7 @@ $http.get(url, options)
 
                 <section>
                     <h2>Service <code>$routeProvider</code></h2>
-                    <p>Permet de configurer le template HTML à charger avec son contrôleur associé pour une URL donné</p>
+                    <p>Permet de configurer le template HTML à charger avec son contrôleur associé pour une URL donnée</p>
                     <pre><code class="javascript" contenteditable>
 $routeProvider
     .when('/route1', {
@@ -701,14 +701,14 @@ angularMovieApp.config(function($routeProvider) {
             <section>
                 <section>
                     <h1>Créer votre propre service</h1>
-                    <p class="fragment">Singleton qui fournit des tâches spécifiques à l'application</p>
+                    <p class="fragment">Fournit des tâches spécifiques à l'application</p>
                     <p class="fragment">Exemple : $scope, $http</p>
                 </section>
 
                 <section>
                     <h2>Créer ses propres services</h2>
                         <pre><code class="javascript" contenteditable>
-myModuleApp.service("CountService", function (dep1, dep2, ...) {
+myModuleApp.factory("CountService", function (dep1, dep2, ...) {
 
     // privée
     var counter = 0;
@@ -808,7 +808,7 @@ $scope.amount = 1234.56;
                     <pre><code class="html" contenteditable>
 &lt;div&gt;{{collection | filter:predicat}}&lt;/div&gt;
                     </code></pre>
-                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriétée qui contient ce prédicat sera retourné dans une nouvelle collection.</p>
+                    <p>Ce filtre accepte un predicat (string) en argument. Toute chaine de caractère ou propriété qui contient ce prédicat sera retournée dans une nouvelle collection.</p>
                 </section>
 
                 <section class="question">
@@ -835,7 +835,7 @@ $scope.amount = 1234.56;
 
                 <section class="question">
                     <h2>Exercice 11 : Trier les films par année et par titre</h2>
-                    <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondant</p>
+                    <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondants</p>
                     <ul>
                         <li>Tirez partie du data-binding</li>
                         <li>Les filtres peuvent être chaînés</li>
@@ -1140,7 +1140,7 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                         <li class="fragment">Modularisation du code avec les modules et les services injectables : Pas de pollution de
                             l'espace global
                         </li>
-                        <li class="fragment">AngularJS peut être actif sur une portion de ta page HTML</li>
+                        <li class="fragment">AngularJS peut être actif sur une portion de la page HTML</li>
                         <li class="fragment">Créer ses propres composants réutilisable grâce aux directives</li>
                         <li class="fragment">Développement guidée</li>
                         <li class="fragment">Framework qui promeut les tests unitaires</li>
