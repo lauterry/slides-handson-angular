@@ -431,6 +431,7 @@ function myController($scope){
                         <li>Pensez à la hiérarchie des <code>$scope</code></li>
                         <li>Surveillez la position de vos directives ng-controller</li>
                         <li>Pensez à réinitialiser le formulaire après chaque film rajouté</li>
+                        <li class="help-js">Utiliser la méthode <code>array.push(object)</code> pour ajouter le film dans le tableau <code>$scope.movies</code></li>
                     </ul>
                 </section>
 
@@ -446,7 +447,7 @@ function myController($scope){
                     <h1>Propagation des évènements <code>$scope</code></h1>
                 </section>
                 <section>
-                    <p class="fragment">Un évènement peut être "diffusé" aux <code>$scope</code> enfants ...</p>
+                    <p>Un évènement peut être "diffusé" aux <code>$scope</code> enfants ...</p>
                     <pre class="fragment"><code class="javascript" contenteditable>
 $scope.$broadcast('myEvent', param1, param2, ...);
                     </code></pre>
@@ -465,9 +466,9 @@ $scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
                 <section class="question">
                     <h2>Exercice 6 : Ajouter un film dans la liste (autre solution)</h2>
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page en utilisant les évènements du <code>scope</code></p>
-                    <p>$emit ou $broadcast ?</p>
-                    <p></p>
                     <ul>
+                        <li>$emit ou $broadcast ?</li>
+                        <li>Pensez au <code>$rootScope</code>, parent de tous les <code>$scope</code></li>
                         <li>Cette solution peut remplacer celle de l'exercice 5</li>
                     </ul>
                 </section>
@@ -570,6 +571,10 @@ $routeProvider
         templateUrl: 'path/to/view2.html',
         controller : 'view2Controller'
     })
+    .when('/route2/:id', {
+        templateUrl: 'path/to/view3.html',
+        controller : 'view3Controller'
+    })
     .otherwise({
         redirectTo: '/route1'
     });
@@ -650,7 +655,8 @@ angularMovieApp.config(function($routeProvider) {
                     <ul>
                         <li>Petite contrainte : Pas de popup. La page d'édition doit être accessible via l'url <code>/#/movies/edit/:id</code></li>
                         <li>Utiliser un nouveau fichier HTML pour la page d'édition et lui affecter un nouveau controller</li>
-                        <li>API : <code>PUT /server/api/movies</code></li>
+                        <li><code>PUT    /server/api/movies</code></li>
+                        <li><code>GET    /server/api/movies/:id</code></li>
                         <li>Utiliser le service <code>$routeParams </code> dans le controller pour récupérer l'id du film à modifier</li>
                         <li>Utiliser le service <code>$location.path('/path')</code> pour naviguer vers <code>/#/path</code></li>
                     </ul>
