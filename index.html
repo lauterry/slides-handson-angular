@@ -39,19 +39,29 @@
 			<div class="slides">
 
                 <section>
-                    <section>
+                    <section data-state="leavesfeir">
                         <img src="img/angularjs.png" height="300px" alt="AngularJS">
                         <h3>Transcendez vos développements Web avec AngularJS</h3>
                         <h4>- Hands On -</h4>
                         <p>
-                            <small><a href="http://gplus.to/lauthierry">Thierry Lau</a> / <a href="https://twitter.com/laut3rry">@laut3rry</a></small>
+                            <small><a href="http://gplus.to/lauthierry">Thierry Lau</a> - <a href="https://twitter.com/laut3rry">@laut3rry</a></small>
                         </p>
-                        <p>
-                            <small><a href="https://plus.google.com/113593809529774542214/posts">Sébastien Letélié</a> / <a href="https://twitter.com/sebmade‎">@sebmade</a></small>
-                        </p>
-                        <p>
-                            <small><a href="https://plus.google.com/113505929077720042958">Thierry Chatel</a> / <a href="https://twitter.com/ThierryChatel‎">@ThierryChatel</a></small>
-                        </p>
+                    </section>
+                    <section data-state="entersfeir">
+                        <a href="http://www.sfeir.com"><img src="img/logoNoir_SFEIR.png" alt="SFEIR"></a>
+                        <p>front-end developer</p>
+                    </section>
+                    <section data-state="leavesfeir">
+                        <h2>Anime la page HTML5 * CSS3 - ʕ๏๏ʔ</h2>
+                        <figure>
+                            <a href="https://plus.google.com/101291710590780094468/posts"><img src="img/page_google_plus.png" alt=""></a>
+                        </figure>
+                    </section>
+                    <section>
+                        <h2>et la communauté HTML5 * CSS3 [FR]</h2>
+                        <figure>
+                            <a href="http://gplus.to/html5css3fr"><img src="img/communaute_google_plus.png" alt=""></a>
+                        </figure>
                     </section>
                 </section>
 
@@ -975,22 +985,6 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section>
-                    <h2>Plusieurs types d'invocations possibles</h2>
-                    <pre><code class="html">
-    &lt;div navbar &gt;&lt;/div&gt;
-                    </code></pre>
-                     <pre><code class="html">
-    &lt;navbar&gt;&lt;/navbar&gt;
-                     </code></pre>
-                     <pre><code class="html">
-    &lt;div class="navbar" &gt;&lt;/div&gt;
-                     </code></pre>
-                     <pre><code class="html">
-    &lt;!-- directive : navbar --&gt;
-                     </code></pre>
-                </section>
-
-                <section>
                     <img src="img/tabs.png" height="300px" alt="Tabs"/>
                     <pre class="fragment" ><code class="html">
     &lt;ul class="nav-tabs"&gt;
@@ -1059,6 +1053,102 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        restrict : 'E',
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        transclude : false,
+        scope : false,
+        require : false,
+        controller : function($scope, $element, $attrs){...},
+        compile : function(tElement, tAttrs, transclude){...},
+        link : function (scope, element, attrs){...}
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Plusieurs types d'invocations possibles</h2>
+                    <pre><code class="html">
+                        &lt;div navbar &gt;&lt;/div&gt;
+                    </code></pre>
+                     <pre><code class="html">
+                         &lt;navbar&gt;&lt;/navbar&gt;
+                     </code></pre>
+                     <pre><code class="html">
+                         &lt;div class="navbar" &gt;&lt;/div&gt;
+                     </code></pre>
+                     <pre><code class="html">
+                         &lt;!-- directive : navbar --&gt;
+                     </code></pre>
+                </section>
+
+                <section>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        restrict : 'EAMC'
+
+
+
+
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+
+
+
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+
+
+
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
                     <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
@@ -1066,14 +1156,168 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         template : "&lt;div&gt;&lt;/div&gt;",
         templateUrl : "/path/to/ma-directive.html",
         replace : true,
-        restrict : 'E,A,C,M',
-        transclude : true,
-        scope : {},
-        link : function(scope, element, attributes){
 
-        }
+
+
+
+
+
+
+
     };
 });
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : {
+            data1 : '@',
+            data2 : '=',
+            data3 : '&'
+        },
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : {},
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : {},
+        transclude : true,
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
+                           return {
+                           template : "&lt;div&gt;&lt;/div&gt;",
+                           templateUrl : "/path/to/ma-directive.html",
+                           replace : true,
+                           restrict : 'EACM',
+                           scope : {},
+                           transclude : true,
+
+
+
+
+
+                           };
+                           });
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
+                           return {
+                           template : "&lt;div&gt;&lt;/div&gt;",
+                           templateUrl : "/path/to/ma-directive.html",
+                           replace : true,
+                           restrict : 'EACM',
+                           scope : {},
+                           transclude : true,
+
+
+
+
+
+                           };
+                           });
+                       </code></pre>
+                </section>
+
+                <section>
+                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
+                           return {
+                           template : "&lt;div&gt;&lt;/div&gt;",
+                           templateUrl : "/path/to/ma-directive.html",
+                           replace : true,
+                           restrict : 'EACM',
+                           scope : {},
+                           transclude : true,
+
+
+
+
+
+                           };
+                           });
                        </code></pre>
                 </section>
 
@@ -1183,8 +1427,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
             <section>
                 <h3>Merci de votre attention !</h3>
                 <p>Thierry Lau - <a href="https://twitter.com/laut3rry">@laut3rry</a></p>
-                <p>Sébastien Letélié - <a href="https://twitter.com/sebmade‎">@sebmade</a></p>
-                <p>Thierry Chatel - <a href="https://twitter.com/ThierryChatel‎">@ThierryChatel</a></p>
             </section>
 
 			</div>
@@ -1195,34 +1437,44 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
 
-		</script>
+        </script>
 
+        <script type="text/javascript">
+            Reveal.addEventListener( 'entersfeir', function() {
+                document.querySelector('.reveal').className = 'reveal black-back';
+            }, false );
+
+            Reveal.addEventListener( 'leavesfeir', function() {
+                document.querySelector('.reveal').className = 'reveal';
+            }, false );
+        </script>
 	</body>
 </html>

@@ -26,6 +26,16 @@
     color: orange;
 }
 
+.black-back {
+    background-color : black;
+}
+
+.reveal section img {
+    background : none;
+    box-shadow : none;
+    border : none;
+}
+
 .copy-button {
     vertical-align: middle;
     background:#25A6E1;
