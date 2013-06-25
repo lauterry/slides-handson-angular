@@ -1191,27 +1191,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
-        restrict : 'EAMC'
-
-
-
-
-
-
-
-
-
-
-    };
-});
-                       </code></pre>
-                </section>
-
-                <section>
-                    <h2>Créer votre propre directive</h2>
-                       <pre><code class="javascript" contenteditable>
-myModuleApp.directive("MaDirective", function (dep1, dep2) {
-    return {
         template : "&lt;div&gt;&lt;/div&gt;",
 
 
@@ -1222,13 +1201,13 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
 
 
+
     };
 });
                        </code></pre>
                 </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -1249,7 +1228,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                 </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -1270,7 +1248,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                 </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -1291,7 +1268,26 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                 </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
+                       <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : true,
+
+
+
+
+
+
+    };
+});
+                       </code></pre>
+                </section>
+
+                <section>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -1309,26 +1305,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
 
 
-    };
-});
-                       </code></pre>
-                </section>
-
-                <section>
-                    <h2>Créer votre propre directive</h2>
-                       <pre><code class="javascript" contenteditable>
-myModuleApp.directive("MaDirective", function (dep1, dep2) {
-    return {
-        template : "&lt;div&gt;&lt;/div&gt;",
-        templateUrl : "/path/to/ma-directive.html",
-        replace : true,
-        restrict : 'EACM',
-        scope : {},
-
-
-
-
-
 
     };
 });
@@ -1336,7 +1312,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
                 </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
 myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
@@ -1344,8 +1319,9 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         templateUrl : "/path/to/ma-directive.html",
         replace : true,
         restrict : 'EACM',
-        scope : {},
+        scope : true,
         transclude : true,
+        priority : 0,
 
 
 
@@ -1359,65 +1335,49 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
                        <pre><code class="javascript" contenteditable>
-                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
-                           return {
-                           template : "&lt;div&gt;&lt;/div&gt;",
-                           templateUrl : "/path/to/ma-directive.html",
-                           replace : true,
-                           restrict : 'EACM',
-                           scope : {},
-                           transclude : true,
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : true,
+        transclude : true,
+        priority : 0,
+        compile : function(tElement, tAttri){
 
+             return function(scope, element, attri){
 
-
-
-
-                           };
-                           });
+             }
+        }
+};
+});
                        </code></pre>
                 </section>
 
-                <section>
-                    <h2>Créer votre propre directive</h2>
-                       <pre><code class="javascript" contenteditable>
-                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
-                           return {
-                           template : "&lt;div&gt;&lt;/div&gt;",
-                           templateUrl : "/path/to/ma-directive.html",
-                           replace : true,
-                           restrict : 'EACM',
-                           scope : {},
-                           transclude : true,
 
-
-
-
-
-                           };
-                           });
-                       </code></pre>
-                </section>
 
                 <section>
-                    <h2>Créer votre propre directive</h2>
-                       <pre><code class="javascript" contenteditable>
-                           myModuleApp.directive("MaDirective", function (dep1, dep2) {
-                           return {
-                           template : "&lt;div&gt;&lt;/div&gt;",
-                           templateUrl : "/path/to/ma-directive.html",
-                           replace : true,
-                           restrict : 'EACM',
-                           scope : {},
-                           transclude : true,
+                    <pre><code class="javascript" contenteditable>
+myModuleApp.directive("MaDirective", function (dep1, dep2) {
+    return {
+        template : "&lt;div&gt;&lt;/div&gt;",
+        templateUrl : "/path/to/ma-directive.html",
+        replace : true,
+        restrict : 'EACM',
+        scope : true,
+        transclude : true,
+        priority : 0,
+        compile : function(tElement, tAttrs, transclude){
 
+            return function(scope, iElement, iAttrs, controller){
 
-
-
-
-                           };
-                           });
+            }
+        }
+        controller : function($scope, $element, $attrs, $transclude){...}
+    };
+});
                        </code></pre>
                 </section>
 
