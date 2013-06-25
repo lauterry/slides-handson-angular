@@ -762,6 +762,106 @@ function myController($scope, CountService){
 
             </section>
 
+
+
+            <section>
+                <section>
+                    <h1>$resource</h1>
+                </section>
+                <section>
+                    <p>Objet vous permettant d'intérargir avec un back end RESTful</p>
+                </section>
+                <section>
+                    <h2>RESTful Web API</h2>
+                    <ul>
+                        <li class="fragment">GET /server/api/movies</li>
+                        <li class="fragment">GET /server/api/movies/1</li>
+                        <li class="fragment">POST /server/api/movies</li>
+                        <li class="fragment">PUT /server/api/movies/1</li>
+                        <li class="fragment">DELETE /server/api/movies/1</li>
+                        <li class="fragment">GET /server/api/movies/1/actors</li>
+                        <li class="fragment">GET /server/api/movies?category="Horreur"</li>
+                    </ul>
+                </section>
+                <section>
+                    <pre><code class="javascript" contenteditable>
+    $resource(url, paramDefaults, actions);
+                    </code></pre>
+                    <ul>
+                        <li class="fragment">url : template URL avec les paramètres préfixés par :
+                            <ul>
+                                <li class="fragment"><code>/user/:username</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">paramDefaults : valeur par défault des paramètres. Si le paramètre n'est
+                            pas présent dans l'url, alors il est ajouté après ?
+                            <ul>
+                                <li class="fragment"><code>{username : 'Dupont', order : 'age'}</code></li>
+                                <li class="fragment"><code>/user/Dupont?order=age</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">actions : objet permettant de paramétré des actions personnalisées
+                            <ul>
+                                <li>
+                                    <pre><code class="javascript" contenteditable>
+    {
+        action1: {method:?, params:?, isArray:?},
+        action2: {method:?, params:?, isArray:?},
+        ...
+    }
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Actions par défaut</h2>
+                    <pre><code class="javascript" contenteditable>
+    {
+        'get':    {method:'GET'},
+        'save':   {method:'POST'},
+        'query':  {method:'GET', isArray:true},
+        'remove': {method:'DELETE'},
+        'delete': {method:'DELETE'}
+    };
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Ressource retournée</h2>
+                    <p>Les ressources récupérées à l'aide de <code>$resource().get()</code> dispose de méthodes
+                        <code>$save, $remove, $delete</code> permettant d'effectué les opérations POST, PUT, DELETE</p>
+                     <pre class="fragment"><code class="javascript" contenteditable>
+     var User = $resource('/car/:carId', {carId :'@id'});
+     Car car = Car.get({carId:123}, function() {
+         car.abc = true;
+         car.$save();
+     });
+                     </code></pre>
+                     <p class="fragment">Note : La valeur du paramètre peut être préfixé par @. Cela signifie que cette valeur est
+                         extraite de l'objet. Utile pour les opérations de type POST, PUT, DELETE</p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 10 : Exploiter $resource</h2>
+                    <p>Dans le service <code>Movies</code>, remplacer <code>$http</code> par l'utilisation du service
+                        <code>$resource</code>. Vous pouvez ainsi gérer tous les appels suivants avec une seule URL paramétrée</p>
+                    <ul>
+                        <li>GET /server/api/movies</li>
+                        <li>GET /server/api/movies/1</li>
+                        <li>POST /server/api/movies</li>
+                        <li>PUT /server/api/movies/1</li>
+                        <li>DELETE /server/api/movies/1</li>
+                        <li>GET /server/api/movies/1/actors</li>
+                        <li>GET /server/api/movies?category="Horreur"</li>
+                    </ul>
+                </section>
+
+            </section>
+
+
             <section>
                 <section>
                     <h1>Filtres AngularJS</h1>
@@ -828,7 +928,7 @@ $scope.amount = 1234.56;
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 10 : Rechercher un film</h2>
+                    <h2>Exercice 11 : Rechercher un film</h2>
                     <p><code>git checkout -f step-8</code></p>
                     <p>Une barre de recherche est disponible. Implémentez une fonction de recherche en utilisant le filtre <code>filter</code></p>
                     <ul>
@@ -850,7 +950,7 @@ $scope.amount = 1234.56;
 
 
                 <section class="question">
-                    <h2>Exercice 11 : Trier les films par année et par titre</h2>
+                    <h2>Exercice 12 : Trier les films par année et par titre</h2>
                     <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondants</p>
                     <ul>
                         <li>Tirez partie du data-binding</li>
@@ -884,7 +984,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 12 : Je veux de vraies étoiles</h2>
+                    <h2>Exercice 13 : Je veux de vraies étoiles</h2>
                     <p><code>git checkout -f step-9</code></p>
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
@@ -894,7 +994,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 13 : Une image vide par défault</h2>
+                    <h2>Exercice 14 : Une image vide par défault</h2>
                     <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
                     <ul>
                         <li>Mmmmhh, sur quoi vais-je appliquer le filtre ?</li>
@@ -933,7 +1033,7 @@ angularMovieApp.filter('greet', function () {
 
 
                 <section class="question">
-                    <h2>Exercice 14 : Une liste de films plus compacte</h2>
+                    <h2>Exercice 15 : Une liste de films plus compacte</h2>
                     <p><code>git checkout -f step-10</code></p>
                     <p>Vous allez permettre à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
                     <ul>
