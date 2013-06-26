@@ -844,16 +844,19 @@ angularMovieApp.config(function($routeProvider) {
                 </section>
                 <section>
                     <ul>
-                    <li>Affectez la classe <code>error</code> si le champ est invalide
+                        <li>Affectez la classe <code>error</code> si le champ est invalide
     <pre><code class="html">
         &lt;div ng-class="{className : boolean}"&gt;&lt;/div&gt;
     </code></pre>
-                    </li>
-                    <li>Afficher le message d'erreur (span <code>help-bloc</code>) si le champ est invalide
+                        </li>
+                        <li>Afficher le message d'erreur (span <code>help-bloc</code>) si le champ est invalide
     <pre><code class="html">
         &lt;div ng-show="boolean"&gt;&lt;/div&gt;
     </code></pre>
-                    </li>
+                        </li>
+                        <li>
+
+                        </li>
                     </ul>
                 </section>
                 <section class="answer">
@@ -1080,9 +1083,9 @@ $scope.amount = 1234.56;
 
                 <section class="question">
                     <h2>Exercice 12 : Améliorons la lisibilité de nos données</h2>
-                    <p>Actuellement, la date et le prix des films n'est pas visuellement acceptable.</p>
+                    <p>Actuellement, la date et le prix des films ne sont pas visuellement acceptable.</p>
                     <ul>
-                        <li>Formattez la date dans un format compréhensible pas l'utilisateur</li>
+                        <li>Affichez une date lisible pour l'utilisateur</li>
                         <li>Pour le prix du film, afficher le prix correctement avec sa devise.</li>
                         <li>Mettez les titres des films en majuscules</li>
                     </ul>
@@ -1165,9 +1168,6 @@ angularMovieApp.filter('greet', function () {
                 <section class="question">
                     <h2>Exercice 16 : Une image vide par défault</h2>
                     <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
-                    <ul>
-                        <li>Mmmmhh, sur quoi vais-je appliquer le filtre ?</li>
-                    </ul>
                 </section>
 
                 <section class="answer">
