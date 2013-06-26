@@ -681,7 +681,9 @@ angularMovieApp.config(function($routeProvider) {
 
             <section>
                 <section>
-                    <h2>Récapitulatifs</h2>
+                    <h1>Récapitulatifs</h1>
+                </section>
+                <section>
                     <ul>
                         <li class="fragment">Double Data Binding
                             <ul>
@@ -1251,6 +1253,8 @@ angularMovieApp.filter('greet', function () {
                         <li>ng-model</li>
                         <li>ng-controller</li>
                         <li>ng-switch</li>
+                        <li>ng-show</li>
+                        <li>ng-class</li>
                     </ul>
                 </section>
 
@@ -1371,7 +1375,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
 
 
-
     };
 });
                        </code></pre>
@@ -1383,7 +1386,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
     return {
         template : "&lt;div&gt;&lt;/div&gt;",
         templateUrl : "/path/to/ma-directive.html",
-
 
 
 
@@ -1404,7 +1406,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         template : "&lt;div&gt;&lt;/div&gt;",
         templateUrl : "/path/to/ma-directive.html",
         replace : true,
-
 
 
 
@@ -1425,7 +1426,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         templateUrl : "/path/to/ma-directive.html",
         replace : true,
         restrict : 'EACM',
-
 
 
 
@@ -1446,7 +1446,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         replace : true,
         restrict : 'EACM',
         scope : true,
-
 
 
 
@@ -1475,7 +1474,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
 
 
 
-
     };
 });
                        </code></pre>
@@ -1491,7 +1489,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         restrict : 'EACM',
         scope : true,
         transclude : true,
-        priority : 0,
 
 
 
@@ -1514,14 +1511,13 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         restrict : 'EACM',
         scope : true,
         transclude : true,
-        priority : 0,
-        compile : function(tElement, tAttri){
+        compile : function(tElement, tAttrs, transclude){
 
-             return function(scope, element, attri){
+             return function(scope, iElement, iAttrs, controller){
 
              }
         }
-};
+    };
 });
                        </code></pre>
                 </section>
@@ -1538,7 +1534,6 @@ myModuleApp.directive("MaDirective", function (dep1, dep2) {
         restrict : 'EACM',
         scope : true,
         transclude : true,
-        priority : 0,
         compile : function(tElement, tAttrs, transclude){
 
             return function(scope, iElement, iAttrs, controller){
