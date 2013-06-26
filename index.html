@@ -716,6 +716,155 @@ angularMovieApp.config(function($routeProvider) {
 
             <section>
                 <section>
+                    <h2>Formulaires & validations</h2>
+                </section>
+                <section>
+                    <img src="img/HTML5_Logo_512.png" alt="HTML5"/>
+                </section>
+                <section>
+                    <img src="img/html5-inputs.png" width="800px" alt="HTML5 Inputs"/>
+                </section>
+                <section>
+                    <figure>
+                        <img width="1500px" src="img/HTML5%20Inputs%20Support.jpg" alt=""/>
+                        <figcaption>
+                            <small>http://www.wufoo.com/html5/</small>
+                        </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                        <img width="1500px" src="img/HTML5%20Inputs%20Attributes%20Support.jpg" alt=""/>
+                        <figcaption>
+                            <small>http://www.wufoo.com/html5/</small>
+                        </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <h2>ng-model</h2>
+
+                    <h3 class="fragment">input, textarea, select</h3>
+                </section>
+                <section>
+                    <h2>Data Binding</h2>
+                    <pre class="fragment"><code class="html">
+    &lt;input type="text" ng-model="name"&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Validations</h2>
+                    <pre class="fragment"><code class="html">
+    &lt;input type="email" ng-model="user.mail"&gt;
+                    </code></pre>
+                    <pre class="fragment"><code class="html">
+    &lt;input ng-model="name"
+              required
+              ng-minlength="3"
+              ng-maxlength="10"
+              ng-pattern="[^a-d]"
+            &gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Etat</h2>
+                    <ul>
+                        <li class="fragment">$pristine</li>
+                        <li class="fragment">$dirty</li>
+                        <li class="fragment">$valid</li>
+                        <li class="fragment">$invalid</li>
+                        <li class="fragment">$error</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Validation manuelle</h2>
+
+                    <p>$setValidity(validationErrorKey, isValid)</p>
+                    <ul>
+                        <li class="fragment">validationErrorKey : nom de la règle de validation
+                            <ul>
+                                <li>required</li>
+                                <li>email</li>
+                                <li>min</li>
+                                <li>maxlength</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">isValid : true ou false</li>
+                    </ul>
+                 <pre class="fragment"><code class="javascript">
+     $setValidity('email', false)       // email invalide
+                 </code></pre>
+                </section>
+
+                <section>
+                    <h2>form</h2>
+                    <p>Ensemble d'<code>inputs</code></p>
+                </section>
+                <section>
+                    <h2>Etat</h2>
+                    <ul>
+                        <li class="fragment">$pristine</li>
+                        <li class="fragment">$dirty</li>
+                        <li class="fragment">$valid</li>
+                        <li class="fragment">$invalid</li>
+                        <li class="fragment">$error</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Nommer vos formulaires et vos champs de saisies avec l'attribut <code>name</code></p>
+                </section>
+                <section>
+                    <h2>Exemple</h2>
+                    <pre class="fragment"><code class="html">
+    &lt;form name="myForm"&gt;
+        &lt;input name="myInput"&gt;
+    &lt;/form&gt;
+                    </code></pre>
+                    <pre class="fragment"><code class="javascript">
+    myForm.myInput.$error.required    // état de validité d'une contrainte
+    myForm.myInput.$invalid           // état de validité d'un champ de saisie
+    myForm.$dirty && myForm.$valid    // vérifier si le formulaire est vierge et valide
+                    </code></pre>
+                </section>
+                <section class="question">
+                    <h2>Exercice 9 : Valider votre formulaire</h2>
+                    <p>Validez le formulaire de création d'un film</p>
+                    <ul>
+                        <li>Le titre du film est requis</li>
+                        <li>La note doit être comprise en 1 et 5</li>
+                        <pre><code class="html">
+    &lt;div class="control-group error"&gt;
+        &lt;label class="control-label" &gt;
+        &lt;input &gt;
+        &lt;span class="help-block"&gt;...&lt;/span&gt;
+    &lt;/div&gt;
+                        </code></pre>
+
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                    <li>Affectez la classe <code>error</code> si le champ est invalide
+    <pre><code class="html">
+        &lt;div ng-class="{className : boolean}"&gt;&lt;/div&gt;
+    </code></pre>
+                    </li>
+                    <li>Afficher le message d'erreur (span <code>help-bloc</code>) si le champ est invalide
+    <pre><code class="html">
+        &lt;div ng-show="boolean"&gt;&lt;/div&gt;
+    </code></pre>
+                    </li>
+                    </ul>
+                </section>
+                <section class="answer">
+                    <h2>Solution</h2>
+                    <p><code>git checkout -f step-6</code></p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
                     <h1>Créer votre propre service</h1>
                     <p class="fragment">Fournit des tâches spécifiques à l'application</p>
                     <p class="fragment">Exemple : $scope, $http</p>
@@ -746,7 +895,7 @@ function myController($scope, CountService){
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 9 : Créer votre propre service</h2>
+                    <h2>Exercice 10 : Créer votre propre service</h2>
                     <p>Actuellement, nous utilisons le service $http en l'injectant dans les controllers et nous dupliquons à chaque fois l'url de l'API. Améliorons ceci en créant notre propre service pour nous connecter au back end pour les opérations de CRUD sur les films.</p>
                     <ul>
                         <li>Appelons ce service <code>Movies</code></li>
@@ -845,7 +994,7 @@ function myController($scope, CountService){
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 10 : Exploiter $resource</h2>
+                    <h2>Exercice 11 : Exploiter $resource</h2>
                     <p>Dans le service <code>Movies</code>, remplacer <code>$http</code> par l'utilisation du service
                         <code>$resource</code>. Vous pouvez ainsi gérer tous les appels suivants avec une seule URL paramétrée</p>
                     <ul>
@@ -928,7 +1077,7 @@ $scope.amount = 1234.56;
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 11 : Rechercher un film</h2>
+                    <h2>Exercice 12 : Rechercher un film</h2>
                     <p><code>git checkout -f step-8</code></p>
                     <p>Une barre de recherche est disponible. Implémentez une fonction de recherche en utilisant le filtre <code>filter</code></p>
                     <ul>
@@ -950,7 +1099,7 @@ $scope.amount = 1234.56;
 
 
                 <section class="question">
-                    <h2>Exercice 12 : Trier les films par année et par titre</h2>
+                    <h2>Exercice 13 : Trier les films par année et par titre</h2>
                     <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondants</p>
                     <ul>
                         <li>Tirez partie du data-binding</li>
@@ -984,7 +1133,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 13 : Je veux de vraies étoiles</h2>
+                    <h2>Exercice 14 : Je veux de vraies étoiles</h2>
                     <p><code>git checkout -f step-9</code></p>
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
@@ -994,7 +1143,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 14 : Une image vide par défault</h2>
+                    <h2>Exercice 15 : Une image vide par défault</h2>
                     <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
                     <ul>
                         <li>Mmmmhh, sur quoi vais-je appliquer le filtre ?</li>
@@ -1033,7 +1182,7 @@ angularMovieApp.filter('greet', function () {
 
 
                 <section class="question">
-                    <h2>Exercice 15 : Une liste de films plus compacte</h2>
+                    <h2>Exercice 16 : Une liste de films plus compacte</h2>
                     <p><code>git checkout -f step-10</code></p>
                     <p>Vous allez permettre à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
                     <ul>
