@@ -478,7 +478,6 @@ $scope.$on('yetAnotherEvent', function(event, param1, param2, ...){
                     <p>Ajouter un film dans la liste des films et l'afficher dans la page en utilisant les évènements du <code>scope</code></p>
                     <ul>
                         <li>$emit ou $broadcast ?</li>
-                        <li>Pensez au <code>$rootScope</code>, parent de tous les <code>$scope</code></li>
                         <li>Cette solution peut remplacer celle de l'exercice 5</li>
                     </ul>
                 </section>
@@ -575,7 +574,7 @@ $http.get(url, options)
 $routeProvider
     .when('/route1', {
       templateUrl: 'path/to/view1.html',
-        controlgiler : 'view1Controller'
+        controller : 'view1Controller'
     })
     .when('/route2', {
         templateUrl: 'path/to/view2.html',
@@ -854,8 +853,10 @@ angularMovieApp.config(function($routeProvider) {
         &lt;div ng-show="boolean"&gt;&lt;/div&gt;
     </code></pre>
                         </li>
-                        <li>
-
+                        <li>Désactiver un button de manière conditionnelle avec l'attribut <code>ng-disabled</code>
+     <pre><code class="html">
+         &lt;button ng-disabled="boolean"&gt;&lt;/button&gt;
+     </code></pre>
                         </li>
                     </ul>
                 </section>
@@ -984,11 +985,11 @@ function myController($scope, CountService){
                 <section>
                     <h2>Ressource retournée</h2>
                     <p>Les ressources récupérées à l'aide de <code>$resource().get()</code> dispose de méthodes
-                        <code>$save, $remove, $delete</code> permettant d'effectué les opérations POST, PUT, DELETE</p>
+                        <code>$save, $update, $remove, $delete</code> permettant d'effectué les opérations POST, PUT, DELETE</p>
                      <pre class="fragment"><code class="javascript" contenteditable>
-     var User = $resource('/car/:carId', {carId :'@id'});
-     Car car = Car.get({carId:123}, function() {
-         car.abc = true;
+     var Car = $resource('/car/:carId', {carId :'@id'});
+     var car = Car.get({carId:123}, function() {
+         car.brand = "Toyota";
          car.$save();
      });
                      </code></pre>
