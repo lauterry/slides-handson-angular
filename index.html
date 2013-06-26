@@ -1062,8 +1062,29 @@ $scope.amount = 1234.56;
                         <li>lowercase</li>
                         <li>uppercase</li>
                         <li>limitTo</li>
-                        <li class="fragment grow">filter</li>
-                        <li class="fragment grow">orderBy</li>
+                        <li>filter</li>
+                        <li>orderBy</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Filtre <code>date</code></h2>
+                    <p>Formate une date selon un certain format et selon une locale</p>
+                    <pre><code class="html" contenteditable>
+&lt;div&gt;{{uneDate | date:format}}&lt;/div&gt;
+                    </code></pre>
+                    <p>Ce filtre accepte un format (string) en argument.</p>
+                    <p><a target="_blank" href="http://docs-angularjs-org-dev.appspot.com/api/ng.filter:date">Consultez la liste
+                     des formats possibles</a></p>
+                </section>
+
+                <section class="question">
+                    <h2>Exercice 12 : Améliorons la lisibilité de nos données</h2>
+                    <p>Actuellement, la date et le prix des films n'est pas visuellement acceptable.</p>
+                    <ul>
+                        <li>Formattez la date dans un format compréhensible pas l'utilisateur</li>
+                        <li>Pour le prix du film, afficher le prix correctement avec sa devise.</li>
+                        <li>Mettez les titres des films en majuscules</li>
                     </ul>
                 </section>
 
@@ -1077,7 +1098,7 @@ $scope.amount = 1234.56;
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 12 : Rechercher un film</h2>
+                    <h2>Exercice 13 : Rechercher un film</h2>
                     <p><code>git checkout -f step-8</code></p>
                     <p>Une barre de recherche est disponible. Implémentez une fonction de recherche en utilisant le filtre <code>filter</code></p>
                     <ul>
@@ -1085,7 +1106,6 @@ $scope.amount = 1234.56;
                         <li>Pas de code nécessaire dans le controller, seulement dans la page HTML</li>
                     </ul>
                 </section>
-
 
                 <section>
                     <h2>Filtre <code>orderBy</code></h2>
@@ -1099,7 +1119,7 @@ $scope.amount = 1234.56;
 
 
                 <section class="question">
-                    <h2>Exercice 13 : Trier les films par année et par titre</h2>
+                    <h2>Exercice 14 : Trier les films par année et par titre</h2>
                     <p>2 boutons de tri sont disponibles. Utilisez le filtre <code>orderBy</code> pour implémentez les tris correspondants</p>
                     <ul>
                         <li>Tirez partie du data-binding</li>
@@ -1133,7 +1153,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 14 : Je veux de vraies étoiles</h2>
+                    <h2>Exercice 15 : Je veux de vraies étoiles</h2>
                     <p><code>git checkout -f step-9</code></p>
                     <p>Créer un filtre permettant d'afficher le nombre d'étoiles correspondant à la note.</p>
                     <ul>
@@ -1143,7 +1163,7 @@ angularMovieApp.filter('greet', function () {
                 </section>
 
                 <section class="question">
-                    <h2>Exercice 15 : Une image vide par défault</h2>
+                    <h2>Exercice 16 : Une image vide par défault</h2>
                     <p>Dans le répertoire img, se trouve une image no-poster.jpg. Créer un filtre qui affiche cette image lorsqu'aucun poster n'est disponible pour un film.</p>
                     <ul>
                         <li>Mmmmhh, sur quoi vais-je appliquer le filtre ?</li>
@@ -1182,7 +1202,7 @@ angularMovieApp.filter('greet', function () {
 
 
                 <section class="question">
-                    <h2>Exercice 16 : Une liste de films plus compacte</h2>
+                    <h2>Exercice 17 : Une liste de films plus compacte</h2>
                     <p><code>git checkout -f step-10</code></p>
                     <p>Vous allez permettre à l'utilisateur de basculer vers une vue plus compacte de la liste des films.</p>
                     <ul>
